@@ -1,0 +1,23 @@
+{
+  "0001" : {
+    "name": "firstCheese",
+    "cost": 11.1,
+    "description": "Great first cheese",
+    "order": 1,
+    "img": "../img/logo.png"
+  },
+  "0002" : {
+    "name": "secondCheese",
+    "cost": 22.2,
+    "description": "Great second  cheese",
+    "order": 2,
+    "img": "../img/logo.png"
+  },
+  "0003" : {
+    "name": "thirdCheese",
+    "cost": 33.3,
+    "description": "Great third cheese",
+    "order": 3,
+    "img": "../img/logo.png"
+  }
+}
