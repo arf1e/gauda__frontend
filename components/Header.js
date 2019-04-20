@@ -4,6 +4,7 @@
 
 import Link from 'next/link';
 import Nav from './Nav';
+import Cart from './Cart';
 
 const Header = () => (
   <div className="bar">
@@ -11,6 +12,7 @@ const Header = () => (
       <a>Gouda</a>
     </Link>
     <Nav />
+    <Cart />
   </div>
 );
 
