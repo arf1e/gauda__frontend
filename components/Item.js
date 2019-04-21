@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import DeleteItem from './DeleteItem';
 
 const ADD_TO_CART_MUTATION = gql`
-  mutation ADD_TO_CART_MUTATION($item: String!) {
-    addToCart(item: $item) @client
+  mutation ADD_TO_CART_MUTATION($id: ID!) {
+    addToCart(id: $id) @client
   }
 `;
 
@@ -48,13 +50,16 @@ export default class Item extends Component {
       <ItemCard>
         <span>{item.category}</span>
         <h2>{item.title}</h2>
-        <Mutation mutation={ADD_TO_CART_MUTATION} variables={{ item: item.id }}>
+        {item.image && <img src={item.image} alt={item.title} width={366} />}
+        <Link href={{ pathname: 'update', query: { id: item.id } }}>
+          <a>Edit</a>
+        </Link>
+        <Mutation mutation={ADD_TO_CART_MUTATION} variables={{ id: item.id }}>
           {(AddToCart, { data }) => (
-            <AddToCard onClick={() => AddToCart(item.id)}>
-              Add to cart
-            </AddToCard>
+            <AddToCard onClick={() => AddToCart(item)}>Add to cart</AddToCard>
           )}
         </Mutation>
+        <DeleteItem id={item.id}>Delete this item</DeleteItem>
       </ItemCard>
     );
   }

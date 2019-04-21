@@ -8,8 +8,16 @@ export const CREATE_ITEM_MUTATION = gql`
     $title: String!
     $price: Int!
     $category: String!
+    $image: String!
+    $largeImage: String!
   ) {
-    createItem(title: $title, price: $price, category: $category) {
+    createItem(
+      title: $title
+      price: $price
+      category: $category
+      image: $image
+      largeImage: $largeImage
+    ) {
       id
     }
   }
@@ -20,12 +28,36 @@ export default class CreateItem extends Component {
     title: 'Supah Cheese',
     category: 'cheese',
     price: 4500,
+    image: null,
+    largeImage: null,
+    uploading: false,
+  };
+
+  uploadFile = async e => {
+    this.setState({ uploading: true });
+    // 1. Файлы
+    const { files } = e.target;
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'gauda-images');
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/arf1e/image/upload',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    const file = await res.json();
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url,
+      uploading: false,
+    });
   };
 
   handleChange = e => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
-    console.log({ name, type, value });
     this.setState({ [name]: val });
   };
 
@@ -47,6 +79,24 @@ export default class CreateItem extends Component {
             }}
           >
             <fieldset disabled={loading} aria-busy={loading}>
+              <label htmlFor="file">
+                Image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                />
+                {this.state.image && (
+                  <img
+                    width={200}
+                    src={this.state.image}
+                    alt="upload preview"
+                  />
+                )}
+              </label>
               <label htmlFor="title">
                 Title
                 <input
@@ -82,7 +132,9 @@ export default class CreateItem extends Component {
                   <option value="wine">Wine</option>
                 </select>
               </label>
-              <button type="submit">Submit!</button>
+              <button type="submit" disabled={this.state.uploading}>
+                Submit!
+              </button>
             </fieldset>
           </form>
         )}

@@ -3,6 +3,7 @@ import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 
 import CartBody from './styled/CartBody';
+import CartItem from './CartItem';
 
 const LOCAL_STATE_QUERY = gql`
   query {
@@ -25,11 +26,9 @@ const Cart = () => (
           <CartBody shown={data.cartOpen}>
             <h2>Cart</h2>
             <button onClick={toggleCart}>&times;</button>
-            <ul>
-              {data.cart.map(id => (
-                <p key={id}>{id}</p>
-              ))}
-            </ul>
+            {data.cart.map(id => (
+              <CartItem key={`${id} + ${Math.random() * Date.now()}`} id={id} />
+            ))}
           </CartBody>
         )}
       </Query>

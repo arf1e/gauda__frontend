@@ -7,12 +7,13 @@ import styled from 'styled-components';
 
 import Item from './Item';
 // Бэст практис - писать названия запросов капсом
-const ALL_ITEMS_QUERY = gql`
+export const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
     items {
       title
       id
       category
+      image
     }
   }
 `;
