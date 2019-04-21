@@ -2,33 +2,51 @@
 
 import Link from 'next/link';
 import { Mutation } from 'react-apollo';
+import styled from 'styled-components';
 import { TOGGLE_CART_MUTATION } from './Cart';
 
+const Navigation = styled.nav`
+  .navigation__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+
+  .navigation__element {
+    margin-right: 20px;
+    font-weight: bold;
+  }
+`;
+
 const Nav = () => (
-  <nav>
-    <ul>
-      <li>
+  <Navigation>
+    <ul className="navigation__list">
+      <li className="navigation__element">
         <Link href="/catalog">
-          <a>Catalog</a>
+          <a className="navigation__link">Catalog</a>
         </Link>
       </li>
-      <li>
+      <li className="navigation__element">
         <Link href="/me">
-          <a>Me</a>
+          <a className="navigation__link">Me</a>
         </Link>
       </li>
-      <li>
+      <li className="navigation__element">
         <Link href="/new">
-          <a>Add Item</a>
+          <a className="navigation__link">Add Item</a>
         </Link>
       </li>
-      <li>
+      <li className="navigation__element">
         <Mutation mutation={TOGGLE_CART_MUTATION}>
-          {toggleCart => <a onClick={toggleCart}>Cart</a>}
+          {toggleCart => (
+            <a onClick={toggleCart} className="navigation__link--cart">
+              Cart
+            </a>
+          )}
         </Mutation>
       </li>
     </ul>
-  </nav>
+  </Navigation>
 );
 
 export default Nav;

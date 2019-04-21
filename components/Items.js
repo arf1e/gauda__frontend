@@ -33,7 +33,6 @@ export default class Items extends Component {
   render() {
     return (
       <Center>
-        <p>Сыр</p>
         <Query query={ALL_ITEMS_QUERY}>
           {({ data, error, loading }) => {
             // У нас сразу есть три состояния:
