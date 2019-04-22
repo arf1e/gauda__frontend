@@ -1,9 +1,9 @@
 // Компонент для отрисовки меню
 
 import Link from 'next/link';
-import { Mutation } from 'react-apollo';
+import { Mutation, Query } from 'react-apollo';
 import styled from 'styled-components';
-import { TOGGLE_CART_MUTATION } from './Cart';
+import { TOGGLE_CART_MUTATION, LOCAL_STATE_QUERY } from './Cart';
 
 const Navigation = styled.nav`
   .navigation__list {
@@ -39,9 +39,13 @@ const Nav = () => (
       <li className="navigation__element">
         <Mutation mutation={TOGGLE_CART_MUTATION}>
           {toggleCart => (
-            <a onClick={toggleCart} className="navigation__link--cart">
-              Cart
-            </a>
+            <Query query={LOCAL_STATE_QUERY}>
+              {({ data }) => (
+                <a onClick={toggleCart} className="navigation__link--cart">
+                  Cart {data.cart.length > 0 && `(${data.cart.length})`}
+                </a>
+              )}
+            </Query>
           )}
         </Mutation>
       </li>

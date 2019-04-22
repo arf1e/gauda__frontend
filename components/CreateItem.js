@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import Router from 'next/router';
+import { ALL_ITEMS_QUERY } from './Items';
 
 export const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
@@ -19,6 +20,11 @@ export const CREATE_ITEM_MUTATION = gql`
       largeImage: $largeImage
     ) {
       id
+      title
+      price
+      category
+      image
+      largeImage
     }
   }
 `;
@@ -31,6 +37,12 @@ export default class CreateItem extends Component {
     image: null,
     largeImage: null,
     uploading: false,
+  };
+
+  update = (cache, payload) => {
+    const data = cache.readQuery({ query: ALL_ITEMS_QUERY });
+    data.items = [...data.items, payload.data.createItem];
+    cache.writeQuery({ query: ALL_ITEMS_QUERY, data });
   };
 
   uploadFile = async e => {
@@ -63,7 +75,11 @@ export default class CreateItem extends Component {
 
   render() {
     return (
-      <Mutation mutation={CREATE_ITEM_MUTATION} variables={this.state}>
+      <Mutation
+        mutation={CREATE_ITEM_MUTATION}
+        variables={this.state}
+        update={this.update}
+      >
         {(createItem, { loading, error }) => (
           <form
             onSubmit={async e => {
@@ -72,7 +88,6 @@ export default class CreateItem extends Component {
               // Отправить запрос
               const res = await createItem();
               // Редирект на каталог
-              console.log(res);
               Router.push({
                 pathname: '/catalog',
               });
