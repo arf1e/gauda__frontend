@@ -7,10 +7,18 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import Meta from './Meta';
 
-// Сюда все цвета
+// Сюда все цвета и вьюпорты
 const theme = {
-  mainColor: '#228B22',
+  mainColor: '#175842',
+  mainYellowColor: '#f4c730',
+  mainVioletColor: '#563d7c',
+  mobileWidth: "320px",
+  mobileOnlyWidth: "767px",
+  tabletWidth : "768px",
+  tableOnlyWidth: "1149px",
+  desktopWidth: "1150px"
 };
+
 
 const GlobalStyle = createGlobalStyle`
   html {

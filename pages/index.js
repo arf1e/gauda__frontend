@@ -1,8 +1,10 @@
-const Home = () => (
+import CarouselSlider from '../components/Carousel';
+import JumbotronText from '../components/Jumbotron';
+const Index = () => (
   <div>
-    <h1>Gouda Cheese Experience</h1>
-    <p>cheese and wine actually</p>
+    <CarouselSlider/>
+    <JumbotronText/>
   </div>
 );
 
-export default Home;
+export default Index;
