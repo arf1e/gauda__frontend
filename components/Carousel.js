@@ -12,8 +12,8 @@ const CarouselSlider = () => (
     <Carousel.Caption>
       <h1>First Cheese</h1>
 
-      <Button variant="outline-light" type="button" className="carousel__btn">View</Button>
-      <Button variant="outline-primary" type="button" className="carousel__btn">Buy Now</Button>
+      <Button variant="outline-light" type="button" className="carousel__btn carousel__btn--left">View</Button>
+      <Button variant="outline-primary" type="button" className="carousel__btn carousel__btn--rigth">Buy Now</Button>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -25,8 +25,8 @@ const CarouselSlider = () => (
 
     <Carousel.Caption>
       <h1>Second Cheese</h1>
-      <Button variant="outline-light" type="button" className="carousel__btn">View</Button>
-      <Button variant="outline-primary" type="button" className="carousel__btn">Buy Now</Button>
+      <Button variant="outline-light" type="button" className="carousel__btn carousel__btn--left" >View</Button>
+      <Button variant="outline-primary" type="button" className="carousel__btn carousel__btn--rigth">Buy Now</Button>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -38,8 +38,8 @@ const CarouselSlider = () => (
 
     <Carousel.Caption>
       <h1>Third Cheese</h1>
-      <Button variant="outline-light" type="button" className="carousel__btn">View</Button>
-      <Button variant="outline-primary" type="button" className="carousel__btn">Buy Now</Button>
+      <Button variant="outline-light" type="button" className="carousel__btn carousel__btn--left">View</Button>
+      <Button variant="outline-primary" type="button" className="carousel__btn carousel__btn--rigth">Buy Now</Button>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

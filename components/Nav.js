@@ -14,7 +14,14 @@ const Navigation = styled.nav`
 
   .navigation__element {
     margin-right: 20px;
-    font-weight: bold;
+  }
+  .navigation__link{
+    color:rgba(0,0,0,0.5);
+    text-decoration:none;
+    &:hover{
+      color:rgba(0,0,0,0.7);
+      font-weight:500;
+    }
   }
 `;
 
@@ -23,7 +30,7 @@ const Nav = () => (
     <ul className="navigation__list">
       <li className="navigation__element">
         <Link href="/catalog">
-          <a className="navigation__link">Catalog</a>
+          <a className="navigation__link">CheeseFarm</a>
         </Link>
       </li>
       <li className="navigation__element">

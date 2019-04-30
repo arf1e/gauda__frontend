@@ -8,7 +8,6 @@ import Cart from './Cart';
 
 const HeaderBody = styled.header`
   .header__inner {
-    width: 1050px;
     margin: 0 auto;
     display: flex;
     align-items: center;

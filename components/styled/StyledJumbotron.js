@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-const StyledJumbotron = styled.div`
-.Jumbotron__heading {
-    text-align:center;
-}
+const JumbotronStyled = styled.div`
 .Jumbotron__text{
     text-align:justify;
     text-indent: 30px;
     margin-bottom: 3%;
+    font-size: 1.25rem;
+    font-weight: 300;
 }
 `;
-export default StyledJumbotron;
+export default JumbotronStyled;

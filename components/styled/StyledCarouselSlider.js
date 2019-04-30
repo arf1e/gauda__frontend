@@ -9,6 +9,15 @@ const StyledCarouselSlider = styled.div`
   top:50%;
   transform: translateY(-70%);
 }
+.carousel__btn--rigth{
+  color:white;
+  border:1px solid black;
+  background-color:#6648b1;
+  border-radius: .3rem;
+}
+.carousel__btn--rigth:hover{
+  background-color:#563d7c;
+}
 @media (min-width:${props => props.theme.tabletWidth}){
   .carousel-inner img{
   width: ${props => props.theme.tabletWidth};
@@ -28,6 +37,7 @@ const StyledCarouselSlider = styled.div`
   margin:5% 2%;
   font-size: 200%;
 }
+
 }
 @media (min-width:${props => props.theme.desktopWidth}){
   .carousel-inner img{
