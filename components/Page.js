@@ -21,6 +21,7 @@ const theme = {
 
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500|Roboto+Slab:100,300,400,700,800');
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -28,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
   *, *:before, *:after {
     box-sizing: inherit;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
   }
 
   body {
@@ -45,9 +48,7 @@ const GlobalStyle = createGlobalStyle`
 const StyledPage = styled.div``;
 
 const Inner = styled.div`
-  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
 `;
 
 class Page extends React.Component {

@@ -2,7 +2,7 @@ import {Container, Row, Col, Button} from 'react-bootstrap';
 import ContainerStyled from './styled/StyledJumbotron';
 const ThreeColumnSections = () => (
 <ContainerStyled>
-<div class="container-fluid container-fluid-Cheese">
+<div className="container-fluid container-fluid-Cheese">
 <div className="row text-center padding">
 <Container>
   <Row>
@@ -12,7 +12,7 @@ const ThreeColumnSections = () => (
   </Row>
   <Row>
       <Col xs={12}>
-      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tenetur sit corporis ex ipsum a, quas rerum distinctio facere. Dolorum.</p>
+      <p className="lead leadThreeColumn">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias tenetur sit corporis ex ipsum a, quas rerum distinctio facere. Dolorum.</p>
       </Col>
   </Row>
   <Row>

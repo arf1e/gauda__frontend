@@ -7,6 +7,9 @@ import { TOGGLE_CART_MUTATION, LOCAL_STATE_QUERY } from './Cart';
 
 const Navigation = styled.nav`
   .navigation__list {
+    font-family: 'Roboto slab', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
     list-style: none;
     padding: 0;
     display: flex;

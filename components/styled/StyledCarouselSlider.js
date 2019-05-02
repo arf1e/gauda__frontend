@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 const StyledCarouselSlider = styled.div`
+margin:2% 5%;
 .carousel-inner img{
   width: ${props => props.theme.mobileWidth};
   height: 100%;

@@ -3,8 +3,8 @@ import FooterStyled from './styled/FooterStyled';
 const Footer = () => (
 <FooterStyled>
 <footer>
-<div class="container-fluid padding">
-<div class="row text-center">
+<div className="container-fluid padding">
+<div className="row text-center">
 <Container>
   <Row>
     <Col md={4}>

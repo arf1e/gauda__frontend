@@ -17,8 +17,8 @@ const ContainerStyled = styled.div`
   margin-top: .3rem;
   margin-bottom: 1rem;
 }
- h3{
-  margin-top: 10%;
+h3{
+  margin-top:10%;
 }
 @media (max-width: 576px){
 .container-fluid-Cheese img {
