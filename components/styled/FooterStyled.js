@@ -20,5 +20,8 @@ hr.light-100{
   margin-top: .8rem;
   margin-bottom: 1rem
 }
+h5{
+  font-size:20px;
+}
 `;
 export default FooterStyled;

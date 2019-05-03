@@ -2,14 +2,15 @@ import styled from 'styled-components';
 const ContainerStyled = styled.div`
 .display-4 {
   margin-bottom: 3rem;
+  font-size: 56px;
+  font-weight: 300;
+  line-height: 1.2;
 }
 .padding{
   padding-bottom: 2rem;
 }
 .welcome{
-  width: 75%;
-  margin: 0 auto;
-  padding-top: 2rem;
+  width: 100%;
 }
 .welcome hr{
   border-top: 2px solid #b4b4b4;
@@ -19,11 +20,23 @@ const ContainerStyled = styled.div`
 }
 h3{
   margin-top:10%;
+  font-size:28px;
+}
+.leadThreeColumn{
+  font-size:20px;
+  margin-bottom: 5%;
+  text-align: center;
 }
 @media (max-width: 576px){
 .container-fluid-Cheese img {
     margin-top: 15%;
+  }
 }
+.btnLearnMore{
+  padding: .5rem 1rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+  font-size:20px;
 }
 `;
 export default ContainerStyled;
