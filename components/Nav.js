@@ -7,6 +7,9 @@ import { TOGGLE_CART_MUTATION, LOCAL_STATE_QUERY } from './Cart';
 
 const Navigation = styled.nav`
   .navigation__list {
+    font-family: 'Roboto slab', sans-serif;
+    font-weight: 400;
+    font-size: 1.1em;
     list-style: none;
     padding: 0;
     display: flex;
@@ -14,7 +17,14 @@ const Navigation = styled.nav`
 
   .navigation__element {
     margin-right: 20px;
-    font-weight: bold;
+  }
+  .navigation__link{
+    color:rgba(0,0,0,0.5);
+    text-decoration:none;
+    &:hover{
+      color:rgba(0,0,0,0.7);
+      font-weight:500;
+    }
   }
 `;
 
@@ -23,7 +33,7 @@ const Nav = () => (
     <ul className="navigation__list">
       <li className="navigation__element">
         <Link href="/catalog">
-          <a className="navigation__link">Catalog</a>
+          <a className="navigation__link">CheeseFarm</a>
         </Link>
       </li>
       <li className="navigation__element">

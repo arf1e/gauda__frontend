@@ -1,8 +1,16 @@
-const Home = () => (
+import CarouselSlider from '../components/Carousel';
+import JumbotronText from '../components/Jumbotron';
+import ThreeColumnSection from '../components/ThreeColumnSection';
+import Footer from '../components/Footer';
+//import ButtonUp from '../components/ButtonUp;'
+const Index = () => (
   <div>
-    <h1>Gouda Cheese Experience</h1>
-    <p>cheese and wine actually</p>
+    {/*<ButtonUp/>*/}
+    <CarouselSlider/>
+    <JumbotronText/>
+    <ThreeColumnSection/>
+    <Footer/>
   </div>
 );
 
-export default Home;
+export default Index;

@@ -25,10 +25,32 @@ export const CREATE_ITEM_MUTATION = gql`
 `;
 
 const ItemCard = styled.article`
-  width: 400px;
-  border: 2px solid black;
-  margin-bottom: 20px;
-  padding: 15px;
+  .cart{
+  margin-bottom: 4rem;
+  width:250px;
+  height: 340px;
+  text-align: center;
+  padding: 20px;
+}
+.cart .name{
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.cart .cost{
+  font-size: 1.3rem;
+  margin: 30px 0;
+}
+/* Для кнопки добавить в корзину */
+.btn-primary{
+  background-color: #6648b1;
+  border: 1px solid ${props => props.theme.mainVioletColor};
+  &:hover{
+    background-color: ${props => props.theme.mainVioletColor};
+    border: 1px solid ${props => props.theme.mainVioletColor};
+  }
+}
 `;
 
 const AddToCard = styled.button`
@@ -47,10 +69,11 @@ export default class Item extends Component {
   render() {
     const { item } = this.props;
     return (
-      <ItemCard>
+      <ItemCard className="cart border shadow-sm p-3 mb-5 bg-white rounded">
         <span>{item.category}</span>
-        <h2>{item.title}</h2>
+        <h2 className="name">{item.title}</h2>
         {item.image && <img src={item.image} alt={item.title} width={366} />}
+        <span className="cost">{item.price}</span>
         <Link href={{ pathname: 'update', query: { id: item.id } }}>
           <a>Edit</a>
         </Link>

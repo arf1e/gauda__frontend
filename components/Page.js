@@ -7,12 +7,21 @@ import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Header from './Header';
 import Meta from './Meta';
 
-// Сюда все цвета
+// Сюда все цвета и вьюпорты
 const theme = {
-  mainColor: '#228B22',
+  mainColor: '#175842',
+  mainYellowColor: '#f4c730',
+  mainVioletColor: '#563d7c',
+  mobileWidth: "320px",
+  mobileOnlyWidth: "767px",
+  tabletWidth : "768px",
+  tableOnlyWidth: "1149px",
+  desktopWidth: "1150px"
 };
 
+
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500|Roboto+Slab:100,300,400,700,800');
   html {
     box-sizing: border-box;
     font-size: 10px;
@@ -20,6 +29,8 @@ const GlobalStyle = createGlobalStyle`
 
   *, *:before, *:after {
     box-sizing: inherit;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 200;
   }
 
   body {
@@ -37,9 +48,7 @@ const GlobalStyle = createGlobalStyle`
 const StyledPage = styled.div``;
 
 const Inner = styled.div`
-  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
 `;
 
 class Page extends React.Component {
