@@ -10,15 +10,16 @@ import Meta from './Meta';
 // Сюда все цвета и вьюпорты
 const theme = {
   mainColor: '#175842',
+  mainSubColor: '#124433',
+  mainActiveColor: '#0d3024',
   mainYellowColor: '#f4c730',
   mainVioletColor: '#563d7c',
-  mobileWidth: "320px",
-  mobileOnlyWidth: "767px",
-  tabletWidth : "768px",
-  tableOnlyWidth: "1149px",
-  desktopWidth: "1150px"
+  mobileWidth: '320px',
+  mobileOnlyWidth: '767px',
+  tabletWidth: '768px',
+  tableOnlyWidth: '1149px',
+  desktopWidth: '1150px',
 };
-
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500|Roboto+Slab:100,300,400,700,800');
