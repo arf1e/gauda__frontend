@@ -147,6 +147,10 @@ export default class CreateItem extends Component {
                   <option value="wine">Wine</option>
                 </select>
               </label>
+              <label htmlFor="description">
+                Description
+                <textarea name="description" id="description" />
+              </label>
               <button type="submit" disabled={this.state.uploading}>
                 Submit!
               </button>

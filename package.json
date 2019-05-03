@@ -26,6 +26,7 @@
     "react-apollo": "^2.5.4",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
+    "react-svg": "^9.0.4",
     "styled-components": "^4.2.0"
   },
   "babel": {
