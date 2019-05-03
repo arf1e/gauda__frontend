@@ -4,6 +4,7 @@ const JumbotronStyled = styled.div`
   text-align: justify;
   text-indent: 30px;
   margin-bottom: 3%;
+  font-size:20px;
 }
 .leadThreeColumn{
   margin-bottom: 5%;
@@ -11,6 +12,12 @@ const JumbotronStyled = styled.div`
 }
 .jumbotron{
   padding:1rem;
+}
+.btnLearnMore{
+  padding: .5rem 1rem;
+  line-height: 1.5;
+  border-radius: .3rem;
+  font-size:20px;
 }
 
 `;

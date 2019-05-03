@@ -3,7 +3,7 @@ import JumbotronStyled from './styled/StyledJumbotron';
 
 const JumbotronText = () => (
   <JumbotronStyled className="container-fluid align-items-center">
-    <Jumbotron className="row jumbotron">
+    <Jumbotron className="row">
       <Container>
         <Row>
           <Col xs={12} md={9} lg={10} xl={10}>
@@ -16,7 +16,9 @@ const JumbotronText = () => (
             </p>
           </Col>
           <Col xs={12} md={3} lg={2} xl={2}>
-            <Button variant="outline-secondary">Learn more</Button>
+            <Button variant="outline-secondary" className="btnLearnMore">
+              Learn more
+            </Button>
           </Col>
         </Row>
       </Container>

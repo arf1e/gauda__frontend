@@ -11,6 +11,7 @@ export const CREATE_ITEM_MUTATION = gql`
     $category: String!
     $image: String!
     $largeImage: String!
+    $description: String!
   ) {
     createItem(
       title: $title
@@ -18,6 +19,7 @@ export const CREATE_ITEM_MUTATION = gql`
       category: $category
       image: $image
       largeImage: $largeImage
+      description: $description
     ) {
       id
       title
@@ -25,6 +27,7 @@ export const CREATE_ITEM_MUTATION = gql`
       category
       image
       largeImage
+      description
     }
   }
 `;
@@ -34,6 +37,7 @@ export default class CreateItem extends Component {
     title: 'Supah Cheese',
     category: 'cheese',
     price: 4500,
+    description: '',
     image: null,
     largeImage: null,
     uploading: false,
@@ -149,7 +153,12 @@ export default class CreateItem extends Component {
               </label>
               <label htmlFor="description">
                 Description
-                <textarea name="description" id="description" />
+                <textarea
+                  name="description"
+                  id="description"
+                  onChange={this.handleChange}
+                  value={this.state.description}
+                />
               </label>
               <button type="submit" disabled={this.state.uploading}>
                 Submit!

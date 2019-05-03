@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500|Roboto+Slab:100,300,400,700,800');
   html {
     box-sizing: border-box;
-    font-size: 10px;
+    font-size: 16px;
   }
 
   *, *:before, *:after {
@@ -36,8 +36,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-size: 1.5rem;
-    line-height: 2;
+    font-weight: 400;
+    line-height: 1.5;
   }
 
   a {

@@ -61,6 +61,7 @@ const SINGLE_ITEM_QUERY = gql`
       category
       largeImage
       price
+      description
     }
   }
 `;
@@ -90,10 +91,10 @@ export default class SingleItem extends Component {
                 />
                 <h3 className="price">{item.price}</h3>
                 <p className="info">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cumque provident eius vel assumenda fuga ex veniam porro enim
+                  {item.description ||
+                    `Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque provident eius vel assumenda fuga ex veniam porro enim
                   in commodi. Vel, incidunt vero dicta repellendus perspiciatis
-                  iste amet doloremque mollitia.
+                  iste amet doloremque mollitia.`}
                 </p>
                 <div className="controls">
                   <a href="#">Add To Cart</a>
