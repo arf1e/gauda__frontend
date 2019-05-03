@@ -21,7 +21,7 @@ const ThreeColumnSections = () => (
             </Col>
           </Row>
           <Row>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} md={4} className="CheeseBlock">
               <img src="/static/img/logo.png" alt="First Cheese" />
               <h3>First Cheese</h3>
               <p>
@@ -32,7 +32,7 @@ const ThreeColumnSections = () => (
                 Learn more
               </Button>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} md={4} className="CheeseBlock">
               <img src="/static/img/logo.png" alt="Second Cheese" />
               <h3>Second Cheese</h3>
               <p>
@@ -43,7 +43,7 @@ const ThreeColumnSections = () => (
                 Learn more
               </Button>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={12} sm={6} md={4} className="CheeseBlock">
               <img src="/static/img/logo.png" alt="Third Cheese" />
               <h3>Third Cheese</h3>
               <p>

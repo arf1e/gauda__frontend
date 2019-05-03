@@ -39,5 +39,8 @@ const ContainerStyled = styled.div`
     border-radius: 0.3rem;
     font-size: 20px;
   }
+  .CheeseBlock{
+    margin:auto;
+  }
 `;
 export default ContainerStyled;
