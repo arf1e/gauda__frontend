@@ -3,13 +3,6 @@ const LeftColumnCatalogStyled = styled.div`
 .welcome{
   margin:2.5rem 0;
 }
-.textCheeseFarm {
-  margin-bottom: 3rem;
-  background: #EEF5FD;
-  color: #545556;
-  font-size: 20px;
-  justify-content: center;
-}
 
 .headerToSort{
   margin-top: 1rem;
@@ -23,7 +16,6 @@ const LeftColumnCatalogStyled = styled.div`
   border-radius: 8px;
   box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15);
 }
-
 `;
 
 export default LeftColumnCatalogStyled;

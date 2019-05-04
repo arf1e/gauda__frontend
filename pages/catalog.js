@@ -1,6 +1,7 @@
 import {Container, Row, Col} from 'react-bootstrap';
 import LeftColumn from '../components/LeftColumnCatalog';
 import Items from '../components/Items';
+import Footer from '../components/Footer';
 const Catalog = () => (
   <main>
       {/*Buy Section*/}
@@ -16,7 +17,7 @@ const Catalog = () => (
         </Row>
         <Row>
           {/*Left Column to sort gods*/}
-          <Col sm={12} lg={3}>
+          <Col sm={12} lg={3} className="text-justify textCheeseFarm">
             <LeftColumn/>
           </Col>
           {/*Right column to buy gods*/}
@@ -26,8 +27,10 @@ const Catalog = () => (
         </Row>
       </Container>
     </div>
-    </div> 
+    </div>
+    <Footer/> 
   </main>
+  
 );
 
 export default Catalog;

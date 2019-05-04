@@ -1,6 +1,35 @@
 import styled from 'styled-components';
 const StyledCheckboxes = styled.div`
-
+.containerOuter__checkBoxContainer{
+  position: relative;
+  margin: 20px;
+  overflow: hidden;
+  width: 160px;
+}
+.entry {
+  height: 25px;
+  position: absolute;
+  width: 160px;
+}
+.entry:nth-child(2) {
+  left: 8px;
+  top: 8px;
+}
+.entry:nth-child(4) {
+  left: 8px;
+  top: 58px;
+}
+.entry:nth-child(6) {
+  left: 8px;
+  top: 108px;
+}
+.entry-label {
+  cursor: pointer;
+  margin-top: -3px;
+  padding-left: 40px;
+  user-select: none;
+  -moz-user-select: none;
+}
 input.inputCheckGoods[type="checkbox"]{
   display: none;
 }

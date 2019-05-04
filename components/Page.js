@@ -40,7 +40,13 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
   }
-
+  .textCheeseFarm {
+    margin-bottom: 3rem;
+    background: #EEF5FD;
+    color: #545556;
+    font-size: 20px;
+    justify-content: center;
+   }
   a {
     text-decoration: none;
   }

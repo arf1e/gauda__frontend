@@ -57,7 +57,7 @@ const StyledRadioButtons = styled.div`
   width: 40px;
 }
 .highlight {
-  background: var(--main-violet);
+  background: ${props => props.theme.mainVioletColor};
   border-radius: 50%;
   height: 12px;
   left: 14px;
@@ -78,13 +78,13 @@ const StyledRadioButtons = styled.div`
   transform: translateY(100px);
 }
 .hidden:nth-child(1):checked + .entry .circle {
-  border-color: var(--main-violet);
+  border-color: ${props => props.theme.mainVioletColor};
 }
 .hidden:nth-child(3):checked + .entry .circle {
-  border-color: var(--main-violet);
+  border-color: ${props => props.theme.mainVioletColor};
 }
 .hidden:nth-child(5):checked + .entry .circle {
-  border-color: var(--main-violet);
+  border-color: ${props => props.theme.mainVioletColor};
 }
 @media (max-width: 768px){
   .containerRadio{
