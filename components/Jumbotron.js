@@ -1,4 +1,5 @@
 import { Container, Row, Col, Jumbotron, Button } from 'react-bootstrap';
+import Link from 'next/link';
 import JumbotronStyled from './styled/StyledJumbotron';
 
 const JumbotronText = () => (
@@ -16,9 +17,11 @@ const JumbotronText = () => (
             </p>
           </Col>
           <Col xs={12} md={3} lg={2} xl={2}>
+          <Link href="/about">
             <Button variant="outline-secondary" className="btnLearnMore">
-              Learn more
+             <a className="nav-link AboutUs">About us</a>
             </Button>
+            </Link>
           </Col>
         </Row>
       </Container>

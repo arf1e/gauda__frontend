@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Nav from './Nav';
 import Cart from './Cart';
+import Phone from './Phone';
 
 const HeaderBody = styled.header`
  background-color:#f8f9fa;
@@ -49,6 +50,7 @@ class Header extends React.Component{
         <div className={`collapse navbar-collapse ${this.state.showMenu ? 'show' : ''}`}>
           <Nav />
           <Cart/>
+          <Phone/>
         </div>
       </div>
     </HeaderBody>

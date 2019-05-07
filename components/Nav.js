@@ -26,6 +26,16 @@ const Nav = () => (
         </Link>
       </li>
       <li className="nav-item">
+        <Link href="/about">
+          <a className="nav-link">About us</a>
+        </Link>
+      </li>
+      <li className="nav-item">
+        <Link href="/faq">
+          <a className="nav-link">F.A.Q</a>
+        </Link>
+      </li>
+      <li className="nav-item">
         <Mutation mutation={TOGGLE_CART_MUTATION}>
           {toggleCart => (
             <Query query={LOCAL_STATE_QUERY}>

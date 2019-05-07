@@ -19,6 +19,13 @@ const JumbotronStyled = styled.div`
   border-radius: .3rem;
   font-size:20px;
 }
-
+.AboutUs{
+  color:#6c757d;
+  font-weight:400;
+  border:.3rem;
+  &:hover{
+    color:white;
+  }
+}
 `;
 export default JumbotronStyled;
