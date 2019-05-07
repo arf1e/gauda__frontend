@@ -7,6 +7,7 @@ const Meta = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charSet="utf-8" />
     <title>Gouda</title>
+    <link rel="stylesheet" href="/static/nprogress.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"

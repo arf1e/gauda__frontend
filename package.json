@@ -21,6 +21,7 @@
     "localforage": "^1.7.3",
     "next": "^8.0.4",
     "next-with-apollo": "^3.4.0",
+    "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-apollo": "^2.5.4",
