@@ -101,7 +101,7 @@ const SingleItemStyles = styled.article`
 
     img {
       width: 450px;
-      height: auto;
+      height: 450px;
       object-fit: contain;
       margin-right: 30px;
     }

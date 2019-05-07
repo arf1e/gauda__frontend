@@ -24,7 +24,7 @@ const Cart = () => (
       <Query query={LOCAL_STATE_QUERY}>
         {({ data }) => (
           <CartBody shown={data.cartOpen}>
-            <h2>Card</h2>
+            <h2>Cart</h2>
             <button onClick={toggleCart}>&times;</button>
             {data.cart.map(id => (
               <CartItem key={`${id} + ${Math.random() * Date.now()}`} id={id} />

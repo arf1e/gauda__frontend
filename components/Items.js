@@ -26,7 +26,9 @@ const ItemsList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  padding: 20px;
+  max-width: 600px;
 `;
 
 export default class Items extends Component {

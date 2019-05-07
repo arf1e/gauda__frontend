@@ -5,11 +5,10 @@ import { Mutation, Query } from 'react-apollo';
 import styled from 'styled-components';
 import { TOGGLE_CART_MUTATION, LOCAL_STATE_QUERY } from './Cart';
 
-const Navigation = styled.nav`
-`;
+const Navigation = styled.nav``;
 
 const Nav = () => (
-  <Navigation>  
+  <Navigation>
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">
         <Link href="/catalog">
@@ -31,7 +30,10 @@ const Nav = () => (
           {toggleCart => (
             <Query query={LOCAL_STATE_QUERY}>
               {({ data }) => (
-                <a onClick={toggleCart} className="navigation__link--cart nav-link">
+                <a
+                  onClick={toggleCart}
+                  className="navigation__link--cart nav-link"
+                >
                   Cart {data.cart.length > 0 && `(${data.cart.length})`}
                 </a>
               )}

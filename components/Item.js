@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
+import ReactSVG from 'react-svg';
 import DeleteItem from './DeleteItem';
 
 const ADD_TO_CART_MUTATION = gql`
@@ -25,40 +26,72 @@ export const CREATE_ITEM_MUTATION = gql`
 `;
 
 const ItemCard = styled.article`
-  .cart {
-    margin-bottom: 4rem;
-    width: 250px;
-    height: 340px;
-    text-align: center;
-    padding: 20px;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: 225ms;
+
+  &:hover {
+    transform: scale(1.05);
   }
-  .cart .name {
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    margin-bottom: 30px;
+
+  img {
+    width: 100%;
+    height: 250px;
+    background-color: gray;
+    order: -1;
+    object-fit: cover;
+    transition: 225ms;
   }
-  .cart .cost {
-    font-size: 1.3rem;
-    margin: 30px 0;
+
+  .title {
+    font-size: 18px;
+    color: black;
   }
-  /* Для кнопки добавить в корзину */
-  .btn-primary {
-    background-color: #6648b1;
-    border: 1px solid ${props => props.theme.mainVioletColor};
-    &:hover {
-      background-color: ${props => props.theme.mainVioletColor};
-      border: 1px solid ${props => props.theme.mainVioletColor};
-    }
+
+  .category {
+    background-color: ${({ theme }) => theme.mainColor};
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+  }
+
+  .category-icon {
+    fill: white;
+  }
+
+  .info {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
-const AddToCard = styled.button`
+const AddToCartButton = styled.button`
   background-color: ${props => props.theme.mainColor};
   border: none;
   padding: 10px 40px;
   color: white;
   font-weight: bold;
+  transition: 225ms;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.mainSubColor};
+  }
+
+  &:active {
+    background-color: ${({ theme }) => theme.mainActiveColor};
+  }
 `;
 
 export default class Item extends Component {
@@ -69,24 +102,35 @@ export default class Item extends Component {
   render() {
     const { item } = this.props;
     return (
-      <ItemCard className="cart border shadow-sm p-3 mb-5 bg-white rounded">
-        <span>{item.category}</span>
+      <ItemCard>
         <Link href={{ pathname: 'item', query: { id: item.id } }}>
           <a>
-            <h2 className="name">{item.title}</h2>
+            <h2 className="title">{item.title}</h2>
+            {item.image && <img src={item.image} alt={item.title} />}
           </a>
         </Link>
-        {item.image && <img src={item.image} alt={item.title} width={366} />}
-        <span className="cost">{item.price}</span>
-        <Link href={{ pathname: 'update', query: { id: item.id } }}>
-          <a>Edit</a>
-        </Link>
-        <Mutation mutation={ADD_TO_CART_MUTATION} variables={{ id: item.id }}>
-          {(AddToCart, { data }) => (
-            <AddToCard onClick={() => AddToCart(item)}>Add to cart</AddToCard>
-          )}
-        </Mutation>
-        <DeleteItem id={item.id}>Delete this item</DeleteItem>
+        <ReactSVG
+          src={`/static/svg/${item.category}.svg`}
+          svgStyle={{ height: 20, width: 20 }}
+          svgClassName="category-icon"
+          wrapper="span"
+          className="category"
+          title={item.category}
+        />
+        <div className="info">
+          <span className="cost">{item.price}</span>
+          <Link href={{ pathname: 'update', query: { id: item.id } }}>
+            <a>Edit</a>
+          </Link>
+          <Mutation mutation={ADD_TO_CART_MUTATION} variables={{ id: item.id }}>
+            {(AddToCart, { data }) => (
+              <AddToCartButton onClick={() => AddToCart(item)}>
+                Add to cart
+              </AddToCartButton>
+            )}
+          </Mutation>
+          <DeleteItem id={item.id}>Delete this item</DeleteItem>
+        </div>
       </ItemCard>
     );
   }
