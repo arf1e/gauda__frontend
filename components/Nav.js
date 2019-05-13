@@ -45,12 +45,7 @@ const Nav = () => (
           </li>
           <li className="nav-item">
             <Link href="/about">
-              <a className="nav-link">About Us</a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link href="/faq">
-              <a className="nav-link">F.A.Q</a>
+              <a className="nav-link">Contacts</a>
             </Link>
           </li>
           <li className="nav-item">

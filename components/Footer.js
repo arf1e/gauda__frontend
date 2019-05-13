@@ -11,10 +11,10 @@ const Footer = () => (
               <Col md={4}>
                 <img src="/static/img/logo.png" alt="Logo" />
                 <hr className="light" />
-                <p>8 (800) 555-35-35</p>
+                <p>+(31 70) 364 64 73</p>
                 <p>gauda@gmail.com</p>
-                <p>street Pushkina, dom Kolotushkina))00</p>
-                <p>Pushkin, St.Petersburg</p>
+                <p>Markt 35</p>
+                <p>2801 JK Gouda, Netherlands</p>
               </Col>
               <Col md={4}>
                 <hr className="light" />
@@ -37,7 +37,7 @@ const Footer = () => (
             <Row>
               <Col sm={12}>
                 <hr className="light" />
-                <h5>&copy;kaas.nl</h5>
+                <h5>&copy;gauda.nl</h5>
               </Col>
             </Row>
           </Container>
