@@ -13,27 +13,27 @@ const Navigation = styled.nav`
 `;
 const Nav = () => (
   <User>
-  {({ data: { me } }) => (
-    <Navigation>
-      <ul className="navbar-nav ml-auto">
-        {me && (
-          <>
+    {({ data: { me } }) => (
+      <Navigation>
+        <ul className="navbar-nav ml-auto">
+          {me && (
+            <>
+              <li className="nav-item">
+                <a className="nav-link">{me.name}</a>
+              </li>
+              <li className="nav-item">
+                <Signout />
+              </li>
+            </>
+          )}
+          {!me && (
             <li className="nav-item">
-              <a className="nav-link">{me.name}</a>
+              <Link href="/signup">
+                <a className="nav-link">Sign In</a>
+              </Link>
             </li>
-            <li className="nav-item">
-              <Signout />
-            </li>
-          </>
-        )}
-        {!me && (
+          )}
           <li className="nav-item">
-            <Link href="/signup">
-              <a className="nav-link">Sign In</a>
-            </Link>
-          </li>
-           )}
-           <li className="nav-item">
             <Link href="/catalog">
               <a className="nav-link">CheeseFarm</a>
             </Link>

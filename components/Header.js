@@ -44,28 +44,38 @@ const HeaderBody = styled.header`
 `;
 class Header extends React.Component {
   state = {
-    showMenu: false
-    }
- 
-  render(){
-    return(
-    <HeaderBody className="bar navbar navbar-expand-md navbar-light bg-light sticky-top">
-      <div className="container-fluid">
-        <Link href="/">
-          <a href="#" className="navbar-brand">
-          <img src="/static/img/logo.png" alt="logo" className="logo"/>
-          </a>
-        </Link>
-        <button className="navbar-toggler" data-toggle="collapse" onClick = {
-          () => this.setState({showMenu: !this.state.showMenu})}>
-          {this.state.showMenu ? <span className="navbar-toggler-icon"></span> : <span className="navbar-toggler-icon"></span>}
-          
-        </button>
-        <div className={`collapse navbar-collapse ${this.state.showMenu ? 'show' : ''}`}>
-          <Nav />
-          <Cart/>
-          <Phone/>
-        </div>
+    showMenu: false,
+  };
+
+  render() {
+    return (
+      <HeaderBody className="bar navbar navbar-expand-md navbar-light bg-light sticky-top">
+        <div className="container-fluid">
+          <Link href="/">
+            <a href="#" className="navbar-brand">
+              <img src="/static/img/logo.png" alt="logo" className="logo" />
+            </a>
+          </Link>
+          <button
+            className="navbar-toggler"
+            data-toggle="collapse"
+            onClick={() => this.setState({ showMenu: !this.state.showMenu })}
+          >
+            {this.state.showMenu ? (
+              <span className="navbar-toggler-icon" />
+            ) : (
+              <span className="navbar-toggler-icon" />
+            )}
+          </button>
+          <div
+            className={`collapse navbar-collapse ${
+              this.state.showMenu ? 'show' : ''
+            }`}
+          >
+            <Nav />
+            <Cart />
+            <Phone />
+          </div>
         </div>
       </HeaderBody>
     );
