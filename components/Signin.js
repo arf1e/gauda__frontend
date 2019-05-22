@@ -43,7 +43,6 @@ export default class Signin extends Component {
               e.preventDefault();
               const response = await signin();
               this.setState({ email: '', password: '' });
-              Router.push({ pathname: '/' });
             }}
           >
             <fieldset>

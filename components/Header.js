@@ -25,7 +25,6 @@ Router.onRouteChangeError = () => {
 const HeaderBody = styled.header`
   background-color: #f8f9fa;
   .nav-link {
-    font-family: 'Roboto slab', sans-serif;
     font-weight: 400;
     font-size: 1.1em;
   }

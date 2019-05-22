@@ -22,15 +22,15 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,300,400,500|Roboto+Slab:100,300,400,700,800');
   html {
     box-sizing: border-box;
     font-size: 16px;
+    font-family: 'Arial';
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Arial';
     font-weight: 200;
   }
 

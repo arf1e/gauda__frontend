@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const CartBody = styled.div`
   height: 100%;
+  display: flex;
+  flex-direction: column;
   width: 40%;
   position: fixed;
   padding: 20px;
@@ -14,6 +16,16 @@ const CartBody = styled.div`
   transition: 0.3s;
   transform: translateY(100%);
   ${props => props.shown && `transform: translateX(0);`};
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  footer {
+    margin-top: auto;
+  }
 `;
 
 export default CartBody;

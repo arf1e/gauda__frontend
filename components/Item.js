@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import ReactSVG from 'react-svg';
 import DeleteItem from './DeleteItem';
 
+import AddToCart from './AddToCart';
+
 const ADD_TO_CART_MUTATION = gql`
   mutation ADD_TO_CART_MUTATION($id: ID!) {
     addToCart(id: $id) @client
@@ -77,23 +79,6 @@ const ItemCard = styled.article`
   }
 `;
 
-const AddToCartButton = styled.button`
-  background-color: ${props => props.theme.mainColor};
-  border: none;
-  padding: 10px 40px;
-  color: white;
-  font-weight: bold;
-  transition: 225ms;
-
-  &:hover {
-    background-color: ${({ theme }) => theme.mainSubColor};
-  }
-
-  &:active {
-    background-color: ${({ theme }) => theme.mainActiveColor};
-  }
-`;
-
 export default class Item extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
@@ -122,13 +107,7 @@ export default class Item extends Component {
           <Link href={{ pathname: 'update', query: { id: item.id } }}>
             <a>Edit</a>
           </Link>
-          <Mutation mutation={ADD_TO_CART_MUTATION} variables={{ id: item.id }}>
-            {(AddToCart, { data }) => (
-              <AddToCartButton onClick={() => AddToCart(item)}>
-                Add to cart
-              </AddToCartButton>
-            )}
-          </Mutation>
+          <AddToCart id={item.id} />
           <DeleteItem id={item.id}>Delete this item</DeleteItem>
         </div>
       </ItemCard>
