@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Mutation, Query } from 'react-apollo';
 import styled from 'styled-components';
 import { TOGGLE_CART_MUTATION, LOCAL_STATE_QUERY } from './Cart';
+import Auth, { TOGGLE_AUTH_MUTATION } from './Auth';
 import User, { CURRENT_USER_QUERY } from './User';
 import Signout from './Signout';
 import CartCount from './CartCount';
@@ -34,9 +35,13 @@ const Nav = () => (
           )}
           {!me && (
             <li className="nav-item">
-              <Link href="/signup">
-                <a className="nav-link">Sign In</a>
-              </Link>
+              <Mutation mutation={TOGGLE_AUTH_MUTATION}>
+                {toggleAuth => (
+                  <a className="nav-link" onClick={toggleAuth}>
+                    Sign In
+                  </a>
+                )}
+              </Mutation>
             </li>
           )}
           <li className="nav-item">
@@ -75,6 +80,7 @@ const Nav = () => (
               </Mutation>
             </li>
           )}
+          {!me && <Auth />}
         </ul>
       </Navigation>
     )}

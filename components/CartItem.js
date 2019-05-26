@@ -48,27 +48,37 @@ const GET_ITEM_QUERY = gql`
   }
 `;
 
-const CartItem = ({ cartItem }) => (
-  <CartItemBody>
-    <img
-      className="image"
-      width={100}
-      height={100}
-      src={cartItem.item.image}
-      alt={cartItem.item.title}
-    />
-    <div className="info">
-      <strong className="title">{cartItem.item.title}</strong>
-      <strong className="count">
-        {cartItem.quantity} x {formatMoney(cartItem.item.price)}
-        <span className="total">
-          = {formatMoney(cartItem.quantity * cartItem.item.price)}
-        </span>
-      </strong>
-      <RemoveFromCart id={cartItem.id} />
-    </div>
-  </CartItemBody>
-);
+const CartItem = ({ cartItem }) => {
+  // check if item exists
+  if (!cartItem.item)
+    return (
+      <div>
+        <p>Item has been removed from database.</p>
+        <RemoveFromCart id={cartItem.id} />
+      </div>
+    );
+  return (
+    <CartItemBody>
+      <img
+        className="image"
+        width={100}
+        height={100}
+        src={cartItem.item.image}
+        alt={cartItem.item.title}
+      />
+      <div className="info">
+        <strong className="title">{cartItem.item.title}</strong>
+        <strong className="count">
+          {cartItem.quantity} x {formatMoney(cartItem.item.price)}
+          <span className="total">
+            = {formatMoney(cartItem.quantity * cartItem.item.price)}
+          </span>
+        </strong>
+        <RemoveFromCart id={cartItem.id} />
+      </div>
+    </CartItemBody>
+  );
+};
 
 CartItem.propTypes = {
   cartItem: PropTypes.object.isRequired,

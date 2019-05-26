@@ -8,6 +8,8 @@ import Router from 'next/router';
 import Nav from './Nav';
 import Cart from './Cart';
 import Phone from './Phone';
+import Search from './Search';
+import Auth from './Auth';
 
 // Прогресс-бар
 Router.onRouteChangeStart = () => {
@@ -66,6 +68,7 @@ class Header extends React.Component {
               <span className="navbar-toggler-icon" />
             )}
           </button>
+          <Search />
           <div
             className={`collapse navbar-collapse ${
               this.state.showMenu ? 'show' : ''

@@ -19,6 +19,7 @@ const theme = {
   tabletWidth: '768px',
   tableOnlyWidth: '1149px',
   desktopWidth: '1150px',
+  mainColorRGB: '23,88,66',
 };
 
 const GlobalStyle = createGlobalStyle`

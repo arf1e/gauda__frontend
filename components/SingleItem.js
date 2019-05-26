@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import Head from 'next/head';
 import ReactSVG from 'react-svg';
 
+import FormatMoney from '../lib/formatMoney';
+
 const SingleItemStyles = styled.article`
   width: 290px;
   margin: 50px auto;
@@ -159,7 +161,7 @@ export default class SingleItem extends Component {
                   iste amet doloremque mollitia.`}
                 </p>
                 <div className="controls">
-                  <h3 className="price">${item.price}</h3>
+                  <h3 className="price">{FormatMoney(item.price)}</h3>
                   <a href="#" className="controls__cart">
                     Add To Cart
                   </a>
