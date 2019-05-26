@@ -5,6 +5,7 @@ import Link from 'next/link';
 import gql from 'graphql-tag';
 import { Mutation } from 'react-apollo';
 import StyledButton from './styled/StyledButton';
+import DisplayError from './ErrorMessage';
 
 import { CURRENT_USER_QUERY } from './User';
 import { TOGGLE_AUTH_MUTATION } from './Auth';
@@ -57,6 +58,7 @@ const Form = styled.form`
   .redirect {
     margin-top: 20px;
     color: ${({ theme }) => theme.mainColor};
+    cursor: pointer;
   }
 
   .forgot {
@@ -67,6 +69,13 @@ const Form = styled.form`
     &:hover {
       text-decoration: underline;
     }
+  }
+
+  .success-message {
+    display: block;
+    border-left: 5px solid ${({ theme }) => theme.mainColor};
+    font-weight: bold;
+    padding: 10px;
   }
 
   @media (min-width: ${({ theme }) => theme.tabletWidth}) {
@@ -105,6 +114,14 @@ const SIGNUP_MUTATION = gql`
   }
 `;
 
+const REQUEST_RESET_MUTATION = gql`
+  mutation REQUEST_RESET_MUTATION($email: String!) {
+    requestReset(email: $email) {
+      message
+    }
+  }
+`;
+
 export class SignIn extends React.Component {
   state = {
     email: '',
@@ -139,7 +156,9 @@ export class SignIn extends React.Component {
                 }}
               >
                 <h4 className="form-title">Sign In</h4>
+                {error && <DisplayError error={error} />}
                 <input
+                  disabled={loading}
                   type="email"
                   name="email"
                   placeholder="email"
@@ -148,6 +167,7 @@ export class SignIn extends React.Component {
                   onChange={this.saveToState}
                 />
                 <input
+                  disabled={loading}
                   type="password"
                   name="password"
                   placeholder="Password"
@@ -159,12 +179,10 @@ export class SignIn extends React.Component {
                   Forgot Password?
                 </a>
                 <div className="controls">
-                  <StyledButton>SIGN IN</StyledButton>
-                  <a
-                    href="#"
-                    onClick={this.props.toSignUp}
-                    className="redirect"
-                  >
+                  <StyledButton>
+                    {loading ? 'Loading...' : 'SIGN IN'}
+                  </StyledButton>
+                  <a onClick={this.props.toSignUp} className="redirect">
                     I don`t have an Account
                   </a>
                 </div>
@@ -209,8 +227,9 @@ export class SignUp extends React.Component {
                 }}
               >
                 <h4 className="form-title">Sign Up</h4>
-                {error && <p>{JSON.stringify(error)}</p>}
+                {error && <DisplayError error={error} />}
                 <input
+                  disabled={loading}
                   type="text"
                   name="name"
                   placeholder="Name"
@@ -219,6 +238,7 @@ export class SignUp extends React.Component {
                   onChange={this.saveToState}
                 />
                 <input
+                  disabled={loading}
                   type="email"
                   name="email"
                   placeholder="Email"
@@ -227,6 +247,7 @@ export class SignUp extends React.Component {
                   onChange={this.saveToState}
                 />
                 <input
+                  disabled={loading}
                   type="password"
                   name="password"
                   placeholder="Password"
@@ -235,6 +256,7 @@ export class SignUp extends React.Component {
                   onChange={this.saveToState}
                 />
                 <input
+                  disabled={loading}
                   type="password"
                   name="confirmPassword"
                   placeholder="Confirm Password"
@@ -262,23 +284,58 @@ export class SignUp extends React.Component {
 }
 
 export class Forgot extends React.Component {
+  state = {
+    email: '',
+  };
+
+  saveToState = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
   render() {
     return (
-      <Form method="post">
-        <h4 className="form-title">Reset Password</h4>
-        <input
-          type="email"
-          name="Email"
-          placeholder="Email"
-          className="input"
-        />
-        <div className="controls">
-          <StyledButton>REQUEST RESET</StyledButton>
-          <a href="#" onClick={this.props.toSignIn} className="redirect">
-            Go back
-          </a>
-        </div>
-      </Form>
+      <Mutation mutation={REQUEST_RESET_MUTATION} variables={this.state}>
+        {(reset, { error, loading, called }) => (
+          <Form
+            method="post"
+            disabled={loading}
+            onSubmit={async e => {
+              e.preventDefault();
+              try {
+                await reset();
+                this.setState({ email: '' });
+              } catch (e) {
+                return null;
+              }
+            }}
+          >
+            <h4 className="form-title">Reset Password</h4>
+            {!error && !loading && called && (
+              <strong className="success-message">
+                Success! Check your email!
+              </strong>
+            )}
+            {error && <DisplayError error={error} />}
+            <input
+              disabled={loading}
+              type="email"
+              name="email"
+              placeholder="Email"
+              className="input"
+              value={this.state.email}
+              onChange={this.saveToState}
+            />
+            <div className="controls">
+              <StyledButton>
+                {loading ? 'Loading...' : 'REQUEST RESET'}
+              </StyledButton>
+              <a href="#" onClick={this.props.toSignIn} className="redirect">
+                Go back
+              </a>
+            </div>
+          </Form>
+        )}
+      </Mutation>
     );
   }
 }

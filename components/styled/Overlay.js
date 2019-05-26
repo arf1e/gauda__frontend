@@ -7,7 +7,7 @@ const Overlay = styled.div`
   bottom: 0;
   right: 0;
   /* background-color: rgba(${({ theme }) => theme.mainColorRGB}, 0.7); */
-  background-color: rgba(255,255,255, 1);
+  background-color: rgba(255,255,255, 0.9);
   z-index: 20;
   display: flex;
   justify-content: center;
