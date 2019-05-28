@@ -7,6 +7,7 @@ import CartBody from './styled/CartBody';
 import CartItem from './CartItem';
 import User from './User';
 import StyledButton from './styled/StyledButton';
+import Payment from './Payment';
 
 import cartTotalPrice from '../lib/cartTotalPrice';
 import formatMoney from '../lib/formatMoney';
@@ -58,7 +59,9 @@ const Cart = () => (
           {me.cart.length > 0 && (
             <footer>
               <h4>Total: {formatMoney(cartTotalPrice(me.cart))}</h4>
-              <StyledButton>Proceed to order</StyledButton>
+              <Payment>
+                <StyledButton>Proceed to order</StyledButton>
+              </Payment>
             </footer>
           )}
         </CartBody>
