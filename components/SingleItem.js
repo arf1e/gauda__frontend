@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import Head from 'next/head';
 import ReactSVG from 'react-svg';
 
 import FormatMoney from '../lib/formatMoney';
+import AddToCart from './AddToCart';
 
 const SingleItemStyles = styled.article`
   width: 290px;
@@ -162,9 +163,7 @@ export default class SingleItem extends Component {
                 </p>
                 <div className="controls">
                   <h3 className="price">{FormatMoney(item.price)}</h3>
-                  <a href="#" className="controls__cart">
-                    Add To Cart
-                  </a>
+                  <AddToCart id={this.props.id} />
                 </div>
               </div>
             </SingleItemStyles>

@@ -105,8 +105,14 @@ const SIGNUP_MUTATION = gql`
     $email: String!
     $name: String!
     $password: String!
+    $confirmPassword: String!
   ) {
-    signup(email: $email, name: $name, password: $password) {
+    signup(
+      email: $email
+      name: $name
+      password: $password
+      confirmPassword: $confirmPassword
+    ) {
       id
       email
       name
@@ -265,7 +271,7 @@ export class SignUp extends React.Component {
                   onChange={this.saveToState}
                 />
                 <div className="controls">
-                  <StyledButton>SIGN IN</StyledButton>
+                  <StyledButton>SIGN UP</StyledButton>
                   <a
                     href="#"
                     onClick={this.props.toSignIn}

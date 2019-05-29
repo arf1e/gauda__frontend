@@ -8,6 +8,8 @@ export default styled.button`
   font-weight: bold;
   transition: 225ms;
   font-size: 14px;
+  min-width: 150px;
+  text-transform: uppercase;
 
   &:hover {
     background-color: ${props =>
