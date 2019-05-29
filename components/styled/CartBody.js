@@ -15,6 +15,7 @@ const CartBody = styled.div`
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   transform: translateY(100%);
+  z-index: 10;
   ${props => props.shown && `transform: translateX(0);`};
 
   ul {

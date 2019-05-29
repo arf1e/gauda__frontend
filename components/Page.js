@@ -20,19 +20,39 @@ const theme = {
   tableOnlyWidth: '1149px',
   desktopWidth: '1150px',
   mainColorRGB: '23,88,66',
+  border: '#e5e5e5',
 };
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 300;
+    src: url('static/fonts/condensed-light.ttf');
+  }
+
+  @font-face {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 700;
+    src: url('static/fonts/condensed-bold.ttf');
+  }
+
   html {
     box-sizing: border-box;
     font-size: 16px;
-    font-family: 'Arial';
   }
 
   *, *:before, *:after {
     box-sizing: inherit;
-    font-family: 'Arial';
-    font-weight: 200;
+    font-family: 'Open Sans Condensed';
+    font-weight: 300;
+    letter-spacing: 1px;
+  }
+
+  h1, h2, h3, h4, h5, h6, strong, b {
+    font-weight: 700;
+    text-transform: uppercase;
   }
 
   body {

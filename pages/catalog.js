@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LeftColumn from '../components/LeftColumnCatalog';
 import Items from '../components/Items';
 import Footer from '../components/Footer';
+import Search from '../components/Search';
 
 const StyledHeading = styled.div`
   padding: 20px;
@@ -65,35 +66,16 @@ const Catalog = () => (
     {/* Buy Section */}
     <StyledHeading>
       <div className="inner">
-        <h1>Our Cheese!</h1>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum id
-          laboriosam blanditiis repudiandae aliquid eos, minus nobis distinctio
-          saepe harum et. Provident nam sunt blanditiis dolores? Ipsam impedit
-          labore id.
-        </p>
+        <h1>Cheese Farm</h1>
       </div>
     </StyledHeading>
-    <div className="container-fluid">
-      <div className="row text-center padding">
-        <Container>
-          <Row>
-            {/* Title */}
-            <Col sm={12} className="welcome" />
-          </Row>
-          <Row>
-            {/* Left Column to sort goods */}
-            <Col sm={12} lg={3} className="text-justify textCheeseFarm">
-              <LeftColumn />
-            </Col>
-            {/* Right column to buy goods */}
-            <Col sm={12} lg={9}>
-              <Items />
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12} md={12}>
+          <Items />
+        </Col>
+      </Row>
+    </Container>
     <Footer />
   </main>
 );

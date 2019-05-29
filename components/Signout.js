@@ -1,6 +1,8 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import ReactSVG from 'react-svg';
+import ButtonWrap from './styled/ButtonWrap';
 
 import { CURRENT_USER_QUERY } from './User';
 
@@ -18,9 +20,12 @@ const Signout = props => (
     refetchQueries={[{ query: CURRENT_USER_QUERY }]}
   >
     {signout => (
-      <a className="nav-link" onClick={signout}>
-        Sign Out
-      </a>
+      <ButtonWrap onClick={signout}>
+        <ReactSVG
+          src="/static/svg/logout.svg"
+          svgStyle={{ height: 20, width: 20 }}
+        />
+      </ButtonWrap>
     )}
   </Mutation>
 );

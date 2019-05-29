@@ -17,7 +17,7 @@ const Bubble = styled.div`
   align-items: center;
   margin-left: 4px;
   margin-top: -10px;
-  transform: scale(0.8);
+  text-align: center;
   font-feature-settings: 'tnum';
   font-variant-numeric: tabular-nums;
 `;

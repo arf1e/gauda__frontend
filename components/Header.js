@@ -8,8 +8,9 @@ import Router from 'next/router';
 import Nav from './Nav';
 import Cart from './Cart';
 import Phone from './Phone';
-import Search from './Search';
 import Auth from './Auth';
+import Search from './Search';
+import UserOptions from './UserOptions';
 
 // Прогресс-бар
 Router.onRouteChangeStart = () => {
@@ -54,7 +55,13 @@ class Header extends React.Component {
         <div className="container-fluid">
           <Link href="/">
             <a href="#" className="navbar-brand">
-              <img src="/static/img/logo.png" alt="logo" className="logo" />
+              <img
+                src="/static/img/logo.png"
+                alt="logo"
+                className="logo"
+                width="100"
+                height="100"
+              />
             </a>
           </Link>
           <button
@@ -68,15 +75,15 @@ class Header extends React.Component {
               <span className="navbar-toggler-icon" />
             )}
           </button>
-          <Search />
           <div
             className={`collapse navbar-collapse ${
               this.state.showMenu ? 'show' : ''
             }`}
           >
             <Nav />
+            <Search />
             <Cart />
-            <Phone />
+            <UserOptions />
           </div>
         </div>
       </HeaderBody>

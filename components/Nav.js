@@ -23,27 +23,6 @@ const Nav = () => (
     {({ data: { me } }) => (
       <Navigation>
         <ul className="navbar-nav ml-auto">
-          {me && (
-            <>
-              <li className="nav-item">
-                <a className="nav-link">{me.name}</a>
-              </li>
-              <li className="nav-item">
-                <Signout />
-              </li>
-            </>
-          )}
-          {!me && (
-            <li className="nav-item">
-              <Mutation mutation={TOGGLE_AUTH_MUTATION}>
-                {toggleAuth => (
-                  <a className="nav-link" onClick={toggleAuth}>
-                    Sign In
-                  </a>
-                )}
-              </Mutation>
-            </li>
-          )}
           <li className="nav-item">
             <Link href="/catalog">
               <a className="nav-link">CheeseFarm</a>
@@ -56,31 +35,9 @@ const Nav = () => (
           </li>
           <li className="nav-item">
             <Link href="/about">
-              <a className="nav-link">Contacts</a>
+              <a className="nav-link">About Us</a>
             </Link>
           </li>
-          {me && (
-            <li className="nav-item">
-              <Mutation mutation={TOGGLE_CART_MUTATION}>
-                {toggleCart => (
-                  // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                  <a
-                    onClick={toggleCart}
-                    className="navigation__link--cart nav-link"
-                  >
-                    Cart
-                    <CartCount
-                      count={me.cart.reduce(
-                        (acc, cartItem) => acc + cartItem.quantity,
-                        0
-                      )}
-                    />
-                  </a>
-                )}
-              </Mutation>
-            </li>
-          )}
-          {!me && <Auth />}
         </ul>
       </Navigation>
     )}
