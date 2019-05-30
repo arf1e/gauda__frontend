@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const CartBody = styled.div`
+  overflow-y: scroll;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -27,6 +28,49 @@ const CartBody = styled.div`
   footer {
     margin-top: auto;
   }
+
+.close-container{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  left:90%;
+  cursor: pointer;
+}
+
+.leftright{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #F4A259;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all .3s ease-in;
+}
+
+.rightleft{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  margin-top: 24px;
+  background-color: #F4A259;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all .3s ease-in;
+}
+
+.close-container:hover .leftright{
+  transform: rotate(-45deg);
+  background-color:#F25C66;
+}
+.close-container:hover .rightleft{
+  transform: rotate(45deg);
+  background-color: #F25C66;
+}
+.close-container:hover label{
+  opacity: 1;
+}
+
 `;
 
 export default CartBody;
