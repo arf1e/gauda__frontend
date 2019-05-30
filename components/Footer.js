@@ -58,7 +58,7 @@ const Footer = () => (
             <Row>
               <Col sm={12}>
                 <hr className="light" />
-                <h5>&copy;gauda.nl</h5>
+                <h5>&copy;gouda.nl</h5>
               </Col>
             </Row>
           </Container>

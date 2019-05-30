@@ -81,6 +81,11 @@ const ItemCard = styled.article`
     padding: 15px 0;
     display: flex;
     flex-direction: column;
+
+    strong {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
   }
 `;
 
@@ -108,12 +113,8 @@ export default class Item extends Component {
           title={item.category}
         />
         <div className="info">
-          <Link href={{ pathname: 'update', query: { id: item.id } }}>
-            <a>Edit</a>
-          </Link>
           <strong>{formatMoney(item.price)}</strong>
           <AddToCart id={item.id} />
-          <DeleteItem id={item.id}>Delete this item</DeleteItem>
         </div>
       </ItemCard>
     );

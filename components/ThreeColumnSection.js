@@ -1,6 +1,6 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
-import ContainerStyled from './styled/ThreeColumnSectionsStyled';
 import Link from 'next/link';
+import ContainerStyled from './styled/ThreeColumnSectionsStyled';
 import StyledButton from './styled/StyledButton';
 
 const ThreeColumnSections = () => (
@@ -15,14 +15,17 @@ const ThreeColumnSections = () => (
           </Row>
           <Row>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/grano.jpg" alt="Cheese" className="theeCheese"/>
+              <img
+                src="/static/img/grano.jpg"
+                alt="Cheese"
+                className="theeCheese"
+              />
               <h3>GRANA PADANO</h3>
               <p>
-              Grana Padano and Parmigiano Reggiano, many of us know simply as Parmesan.
+                Grana Padano and Parmigiano Reggiano, many of us know simply as
+                Parmesan.
               </p>
-              <p className="cost">
-                13$ 
-              </p>
+              <p className="cost">13$</p>
               <Link
                 href={{
                   pathname: '/item',
@@ -35,14 +38,14 @@ const ThreeColumnSections = () => (
               </Link>
             </Col>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/ariana.jpg" alt="Whine" className="theeCheese"/>
+              <img
+                src="/static/img/ariana.jpg"
+                alt="Whine"
+                className="theeCheese"
+              />
               <h3>MARTI FABRA VINYES VELLES</h3>
-              <p>
-              Types: Red Unfortified still wines 
-              </p>
-              <p className="cost">
-                13.50$ 
-              </p>
+              <p>Types: Red Unfortified still wines</p>
+              <p className="cost">13.50$</p>
               <Link
                 href={{
                   pathname: '/item',
@@ -55,14 +58,14 @@ const ThreeColumnSections = () => (
               </Link>
             </Col>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/butter.jpg" alt="Butter" className="theeCheese"/>
+              <img
+                src="/static/img/butter.jpg"
+                alt="Butter"
+                className="theeCheese"
+              />
               <h3>BEURRE DE BARATTE DEMI-SEL - SALTED BUTTER</h3>
-              <p>
-              from France by Rodolphe Le Meunier
-              </p>
-              <p className="cost">
-              $11.75
-              </p>
+              <p>from France by Rodolphe Le Meunier</p>
+              <p className="cost">$11.75</p>
               <Link
                 href={{
                   pathname: '/item',
