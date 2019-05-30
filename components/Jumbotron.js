@@ -1,31 +1,24 @@
-import { Container, Row, Col, Jumbotron, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import JumbotronStyled from './styled/StyledJumbotron';
 
 const JumbotronText = () => (
-  <JumbotronStyled className="container-fluid align-items-center">
-    <Jumbotron className="row">
-      <Container>
-        <Row>
-          <Col xs={12} md={9} lg={10} xl={10}>
-            <p className="lead">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
-              ipsum labore vitae itaque perferendis iure assumenda ipsa,
-              veritatis nam explicabo cum repellendus aliquid voluptas quasi
-              sapiente quaerat illo tempora molestias tenetur qui quam sint
-              placeat, dicta magnam. Voluptatum incidunt, molestias?
-            </p>
-          </Col>
-          <Col xs={12} md={3} lg={2} xl={2}>
-          <Link href="/about">
-            <Button variant="outline-secondary" className="btnLearnMore">
-             <a className="nav-link AboutUs">About us</a>
-            </Button>
-            </Link>
-          </Col>
-        </Row>
-      </Container>
-    </Jumbotron>
+  <JumbotronStyled>
+    <div className="container">
+      <img src="/static/img/sheep.png" alt="Sheep" className="container__image"/>
+      <div className="contentAboutBlock">
+        <div className="contentAboutBlock__inner">
+          <h2 className="contentAboutBlock__heading">HANDCRAFTED QUALITY AT SCALE</h2>
+          <p className="contentAboutBlock__text">We provide our customers with products crafted with love to farming 
+          traditions, but keep our prices low. Find out how is that possible!</p>
+          <Link href="/about">	
+              <a className="nav-link">
+                <button className="contentAboutBlock__button">ABOUT US</button>
+              </a>
+          </Link>	
+            
+        </div>
+      </div>
+    </div>
   </JumbotronStyled>
 );
 export default JumbotronText;

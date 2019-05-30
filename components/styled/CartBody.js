@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const CartBody = styled.div`
+@media (min-width:${props => props.theme.desktopWidth}){
   overflow-y: scroll;
   height: 100%;
   display: flex;
@@ -70,7 +71,7 @@ const CartBody = styled.div`
 .close-container:hover label{
   opacity: 1;
 }
-
+}
 `;
 
 export default CartBody;

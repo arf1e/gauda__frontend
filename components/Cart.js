@@ -44,8 +44,8 @@ const Cart = () => (
         <CartBody shown={localState.data.cartOpen}>
           <header>
             <div className="close-container" onClick={toggleCart}>
-              <div className="leftright" />
-              <div className="rightleft" />
+              <div className="leftright"></div>
+              <div className="rightleft"></div>
             </div>
             <h2>Cart</h2>
             <p>

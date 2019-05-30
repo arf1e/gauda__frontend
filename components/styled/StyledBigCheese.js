@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-const JumbotronStyled = styled.div`
+const StyledBigCheese = styled.div`
 .container{
   position:relative;
   padding:0!important;
 }
-.contentAboutBlock{
+.contentBlock{
     background: rgba(255, 255, 255, 0.7);
     position:absolute;
     left:10%;
@@ -12,7 +12,7 @@ const JumbotronStyled = styled.div`
     right:5%;
     overflow:hidden;
   }
-  .contentAboutBlock__heading{
+  .contentBlock__heading{
     font-style: normal;
     font-weight: bold;
     font-size: 24px;
@@ -20,15 +20,15 @@ const JumbotronStyled = styled.div`
     text-transform:uppercase;
     padding:5%;
   }
-  .contentAboutBlock__inner{
+  .contentBlock__inner{
     border: 2px solid #000000;
     margin:5%;
   }
-  .contentAboutBlock__text{
+  .contentBlock__text{
     text-align:justify;
     padding:0 5%;
   }
-  .contentAboutBlock__button{
+  .contentBlock__button{
     background: #175842;
     font-style: normal;
     font-weight: bold;
@@ -41,7 +41,7 @@ const JumbotronStyled = styled.div`
     margin-bottom:5%;
   }
 @media (min-width: ${({ theme }) => theme.tabletWidth}) {
-  
+
 }
 
 
@@ -49,12 +49,12 @@ const JumbotronStyled = styled.div`
   .container{
   padding:0 -15px!important;
 }
-  .contentAboutBlock{
+  .contentBlock{
     left:10%;
     top:20%;
-    right:50%;
+    right:30%;
   }
-  .contentAboutBlock__heading{
+  .contentBlock__heading{
     font-size: 28px;
     line-height: 38px;
     padding:5%;
@@ -62,4 +62,5 @@ const JumbotronStyled = styled.div`
   
 }
 `;
-export default JumbotronStyled;
+
+export default StyledBigCheese;

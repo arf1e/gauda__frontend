@@ -1,85 +1,20 @@
-import { Carousel, Button } from 'react-bootstrap';
-import StyledCarouselSlider from './styled/StyledCarouselSlider';
+import StyledBigCheese from './styled/StyledBigCheese';
 
 const CarouselSlider = () => (
-  <StyledCarouselSlider>
-    <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/static/img/demo1.jpg"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h1>First Cheese</h1>
-
-          <Button
-            variant="outline-light"
-            type="button"
-            className="carousel__btn carousel__btn--left"
-          >
-            View
-          </Button>
-          <Button
-            variant="outline-primary"
-            type="button"
-            className="carousel__btn carousel__btn--rigth"
-          >
-            Buy Now
-          </Button>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/static/img/demo1.jpg"
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h1>Second Cheese</h1>
-          <Button
-            variant="outline-light"
-            type="button"
-            className="carousel__btn carousel__btn--left"
-          >
-            View
-          </Button>
-          <Button
-            variant="outline-primary"
-            type="button"
-            className="carousel__btn carousel__btn--rigth"
-          >
-            Buy Now
-          </Button>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="/static/img/demo1.jpg"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h1>Third Cheese</h1>
-          <Button
-            variant="outline-light"
-            type="button"
-            className="carousel__btn carousel__btn--left"
-          >
-            View
-          </Button>
-          <Button
-            variant="outline-primary"
-            type="button"
-            className="carousel__btn carousel__btn--rigth"
-          >
-            Buy Now
-          </Button>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
-  </StyledCarouselSlider>
+  <StyledBigCheese>
+    <div className="container">
+      <img src="/static/img/cheese.png" alt="Cheese" className="container__image"/>
+      <div className="contentBlock">
+        <div className="contentBlock__inner">
+          <h2 className="contentBlock__heading">Say cheese, say gauda!</h2>
+          <p className="contentBlock__text">Fusce nunc eros, gravida et ultrices sit amet, maximus in mauris. 
+          Vestibulum mauris orci, malesuada eget tortor non, viverra bibendum velit. Pellentesque ipsum dolor, 
+          dapibus sit amet convallis sit amet, lobortis ac neque</p>
+          <button className="contentBlock__button">GET YOUR TOUR TICKET</button>
+        </div>
+      </div>
+    </div>
+      
+  </StyledBigCheese>
 );
 export default CarouselSlider;
