@@ -43,13 +43,14 @@ const Cart = () => (
       return (
         <CartBody shown={localState.data.cartOpen}>
           <header>
+            <div class="close-container" onClick={toggleCart}>
+              <div class="leftright"></div>
+              <div class="rightleft"></div>
+            </div>
             <h2>Cart</h2>
             <p>
               {me.cart.length} item{me.cart.length > 1 ? 's' : ''}
             </p>
-            <button onClick={toggleCart} type="button">
-              &times;
-            </button>
           </header>
           <ul>
             {me.cart.map(cartItem => (
