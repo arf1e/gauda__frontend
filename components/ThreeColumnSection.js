@@ -1,5 +1,7 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import ContainerStyled from './styled/ThreeColumnSectionsStyled';
+import Link from 'next/link';
+import StyledButton from './styled/StyledButton';
 
 const ThreeColumnSections = () => (
   <ContainerStyled>
@@ -8,51 +10,69 @@ const ThreeColumnSections = () => (
         <Container>
           <Row>
             <Col xs={12}>
-              <h1 className="display-4">Our new cheese!</h1>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12}>
-              <p className="lead leadThreeColumn">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias
-                tenetur sit corporis ex ipsum a, quas rerum distinctio facere.
-                Dolorum.
-              </p>
+              <h2 className="display-4">TRENDING</h2>
             </Col>
           </Row>
           <Row>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/logo.png" alt="First Cheese" />
-              <h3>First Cheese</h3>
+              <img src="/static/img/grano.jpg" alt="Cheese" className="theeCheese"/>
+              <h3>GRANA PADANO</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae,
-                ipsa.
+              Grana Padano and Parmigiano Reggiano, many of us know simply as Parmesan.
               </p>
-              <Button variant="outline-secondary" className="btnLearnMore">
-                Learn more
-              </Button>
+              <p className="cost">
+                13$ 
+              </p>
+              <Link
+                href={{
+                  pathname: '/item',
+                  query: { id: 'cjwaps8999w9f0b0532011jbh' },
+                }}
+              >
+                <a>
+                  <StyledButton>View</StyledButton>
+                </a>
+              </Link>
             </Col>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/logo.png" alt="Second Cheese" />
-              <h3>Second Cheese</h3>
+              <img src="/static/img/ariana.jpg" alt="Whine" className="theeCheese"/>
+              <h3>MARTI FABRA VINYES VELLES</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae,
-                ipsa.
+              Types: Red Unfortified still wines 
               </p>
-              <Button variant="outline-secondary" className="btnLearnMore">
-                Learn more
-              </Button>
+              <p className="cost">
+                13.50$ 
+              </p>
+              <Link
+                href={{
+                  pathname: '/item',
+                  query: { id: 'cjwatny9ztlnc0b61grr0e3ar' },
+                }}
+              >
+                <a>
+                  <StyledButton>View</StyledButton>
+                </a>
+              </Link>
             </Col>
             <Col xs={12} sm={6} md={4} className="CheeseBlock">
-              <img src="/static/img/logo.png" alt="Third Cheese" />
-              <h3>Third Cheese</h3>
+              <img src="/static/img/butter.jpg" alt="Butter" className="theeCheese"/>
+              <h3>BEURRE DE BARATTE DEMI-SEL - SALTED BUTTER</h3>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae,
-                ipsa.
+              from France by Rodolphe Le Meunier
               </p>
-              <Button variant="outline-secondary" className="btnLearnMore">
-                Learn more
-              </Button>
+              <p className="cost">
+              $11.75
+              </p>
+              <Link
+                href={{
+                  pathname: '/item',
+                  query: { id: 'cjwatw9jgtpf50b61uxezthmt' },
+                }}
+              >
+                <a>
+                  <StyledButton>View</StyledButton>
+                </a>
+              </Link>
             </Col>
           </Row>
           <hr className="welcome" />

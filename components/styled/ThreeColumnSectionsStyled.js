@@ -1,11 +1,17 @@
 import styled from 'styled-components';
 
 const ContainerStyled = styled.div`
-  .display-4 {
-    margin-bottom: 3rem;
-    font-size: 56px;
-    font-weight: 300;
-    line-height: 1.2;
+.display-4 {
+    margin: 3rem 0 3rem 10%;
+    font-weight: bold;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 33px;
+    text-align:left;
+  }
+  .theeCheese{
+    max-width:inherit;
+    border-radius:50%;
   }
   .padding {
     padding-bottom: 2rem;
@@ -42,5 +48,27 @@ const ContainerStyled = styled.div`
   .CheeseBlock{
     margin:auto;
   }
+  .cost{
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 33px;
+    text-align: center;
+    color: #175842;
+  }
+@media (min-width: ${({ theme }) => theme.tabletWidth}) {
+  .display-4 {
+    font-size: 36px;
+    line-height: 49px;
+  } 
+}
+@media (min-width: ${({ theme }) => theme.desktopWidth}) {
+  .display-4 {
+    margin: 3rem 0 3rem 10%;
+    font-size: 48px;
+    line-height: 65px;
+  }
+}
+  
 `;
 export default ContainerStyled;

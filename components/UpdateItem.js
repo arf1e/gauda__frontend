@@ -98,6 +98,8 @@ export default class UpdateItem extends Component {
                       >
                         <option value="cheese">Cheese</option>
                         <option value="wine">Wine</option>
+                        <option value="butter">Butter</option>
+                        <option value="tickets">Tickets</option>
                       </select>
                     </label>
                     <button type="submit" disabled={this.state.uploading}>

@@ -7,8 +7,8 @@ const Index = () => (
   <div>
     {/*<ButtonUp/>*/}
     <CarouselSlider/>
-    <JumbotronText/>
     <ThreeColumnSection/>
+    <JumbotronText/>
     <Footer/>
   </div>
 );

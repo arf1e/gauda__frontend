@@ -150,7 +150,7 @@ export default class CreateItem extends Component {
                 >
                   <option value="cheese">Cheese</option>
                   <option value="wine">Wine</option>
-                  <option value="cheese">Butter</option>
+                  <option value="butter">Butter</option>
                   <option value="tickets">Tickets</option>
                 </select>
               </label>
