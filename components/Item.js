@@ -38,7 +38,7 @@ const ItemCard = styled.article`
   transition: 225ms;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
 
   img {
@@ -53,6 +53,7 @@ const ItemCard = styled.article`
   .title {
     font-size: 18px;
     color: black;
+    padding: 10px 15px;
   }
 
   .category {
@@ -70,6 +71,10 @@ const ItemCard = styled.article`
 
   .category-icon {
     fill: white;
+
+    & path {
+      fill: white;
+    }
   }
 
   .info {
@@ -103,7 +108,6 @@ export default class Item extends Component {
           title={item.category}
         />
         <div className="info">
-          <span className="cost">{item.price}</span>
           <Link href={{ pathname: 'update', query: { id: item.id } }}>
             <a>Edit</a>
           </Link>

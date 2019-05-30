@@ -29,6 +29,7 @@ const FilterStyles = styled.form`
     transition: 225ms;
     flex-direction: column;
     cursor: pointer;
+    opacity: 0.7;
 
     &:active {
       transform: scale(1.05);
@@ -78,6 +79,7 @@ const FilterStyles = styled.form`
     background-color: ${({ theme }) => theme.mainColor};
     color: white;
     border-color: ${({ theme }) => theme.mainColor};
+    opacity: 1;
 
     & .category-icon {
       fill: white;
@@ -85,6 +87,23 @@ const FilterStyles = styled.form`
       & path {
         fill: white;
       }
+    }
+  }
+
+  .apply {
+    width: 100%;
+  }
+
+  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+    width: 190px;
+
+    .category {
+      flex-wrap: wrap;
+    }
+
+    .sort {
+      display: flex;
+      flex-direction: column;
     }
   }
 `;
@@ -233,7 +252,7 @@ export default class Filter extends React.Component {
             </label>
           </div>
         </div>
-        <StyledButton style={{ margin: '0 auto', width: 285 }}>
+        <StyledButton style={{ margin: '0 auto' }} className="apply">
           APPLY
         </StyledButton>
       </FilterStyles>

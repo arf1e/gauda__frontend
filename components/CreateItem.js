@@ -74,6 +74,7 @@ export default class CreateItem extends Component {
   handleChange = e => {
     const { name, type, value } = e.target;
     const val = type === 'number' ? parseFloat(value) : value;
+    console.log(this.state);
     this.setState({ [name]: val });
   };
 
@@ -149,6 +150,8 @@ export default class CreateItem extends Component {
                 >
                   <option value="cheese">Cheese</option>
                   <option value="wine">Wine</option>
+                  <option value="cheese">Butter</option>
+                  <option value="tickets">Tickets</option>
                 </select>
               </label>
               <label htmlFor="description">

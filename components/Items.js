@@ -4,11 +4,24 @@ import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import styled from 'styled-components';
 import Filter from './Filter';
+import Error from './ErrorMessage';
 
 import Item from './Item';
 // Бэст практис - писать названия запросов капсом
 export const ALL_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY($category: String!, $sort: ItemOrderByInput) {
+  query ALL_ITEMS_QUERY {
+    items {
+      title
+      id
+      category
+      image
+      price
+    }
+  }
+`;
+
+export const FILTERED_ITEMS_QUERY = gql`
+  query ALL_ITEMS_QUERY($category: String, $sort: ItemOrderByInput) {
     items(where: { category: $category }, orderBy: $sort) {
       title
       id
@@ -29,11 +42,52 @@ const ItemsList = styled.div`
   margin: 0 auto;
 
   @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+    width: auto;
+    padding-top: 0;
+    justify-content: space-between;
+  }
+
+  @media (min-width: ${({ theme }) => theme.desktopWidth}) {
+  }
+`;
+
+const Container = styled.section`
+  width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+
+  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
     width: 668px;
   }
 
   @media (min-width: ${({ theme }) => theme.desktopWidth}) {
     width: 1050px;
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    align-items: flex-start;
+    grid-column-gap: 10px;
+  }
+`;
+
+const Response = styled.div`
+  margin: 60px auto;
+  display: block;
+  width: 290px;
+  padding: 10px 15px;
+  border-left: 5px solid ${({ theme }) => theme.violetColor};
+
+  p {
+    margin: 0;
+  }
+
+  &.loading {
+    border-left-color: ${({ theme }) => theme.mainColor};
+  }
+
+  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+    margin: 0;
   }
 `;
 
@@ -49,17 +103,19 @@ export default class Items extends Component {
 
   render() {
     return (
-      <>
+      <Container>
         <Filter handleChange={this.handleChange} />
-        <Query query={ALL_ITEMS_QUERY} variables={this.state}>
+        <Query query={FILTERED_ITEMS_QUERY} variables={this.state}>
           {({ data, error, loading }) => {
             // У нас сразу есть три состояния:
             // 1. Загрузки:
-            if (loading) return <p>Loading</p>;
+            if (loading)
+              return <Response className="loading">Loading...</Response>;
             // 2. Ошибки:
-            if (error) return <p>Error</p>;
+            if (error) return <Error error={error} />;
             // 3. Когда все хорошо:
-            if (data.items.length === 0) return <p>No items found.</p>;
+            if (data.items.length === 0)
+              return <Response>No items found.</Response>;
             return (
               <div>
                 <ItemsList>
@@ -71,7 +127,7 @@ export default class Items extends Component {
             );
           }}
         </Query>
-      </>
+      </Container>
     );
   }
 }
