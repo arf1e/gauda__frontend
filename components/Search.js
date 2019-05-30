@@ -77,8 +77,10 @@ class Search extends React.Component {
                       id: 'search',
                       className: this.state.loading ? 'loading' : '',
                       onChange: e => {
-                        e.persist();
-                        this.onChange(e, client);
+                        if (e.target.value.length > 1) {
+                          e.persist();
+                          this.onChange(e, client);
+                        }
                       },
                     })}
                   />
