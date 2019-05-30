@@ -6,7 +6,7 @@ import gql from 'graphql-tag';
 import styled from 'styled-components';
 import ReactSVG from 'react-svg';
 import DeleteItem from './DeleteItem';
-
+import formatMoney from '../lib/formatMoney';
 import AddToCart from './AddToCart';
 
 const ADD_TO_CART_MUTATION = gql`
@@ -107,6 +107,7 @@ export default class Item extends Component {
           <Link href={{ pathname: 'update', query: { id: item.id } }}>
             <a>Edit</a>
           </Link>
+          <strong>{formatMoney(item.price)}</strong>
           <AddToCart id={item.id} />
           <DeleteItem id={item.id}>Delete this item</DeleteItem>
         </div>

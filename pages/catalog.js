@@ -69,13 +69,7 @@ const Catalog = () => (
         <h1>Cheese Farm</h1>
       </div>
     </StyledHeading>
-    <Container>
-      <Row>
-        <Col xs={12} md={12}>
-          <Items />
-        </Col>
-      </Row>
-    </Container>
+    <Items />
     <Footer />
   </main>
 );
