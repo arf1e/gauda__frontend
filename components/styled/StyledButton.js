@@ -19,4 +19,8 @@ export default styled.button`
   &:active {
     background-color: ${props => props.theme.mainActiveColor};
   }
+
+  &:disabled {
+    background-color: ${props => props.theme.border};
+  }
 `;

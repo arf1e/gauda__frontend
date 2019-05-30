@@ -39,32 +39,34 @@ export default class Payment extends React.Component {
     Router.push({
       pathname: '/order',
       query: { id: order.data.createOrder.id },
-    })
+    });
   };
 
   render() {
     return (
       <User>
-        {({ data: { me } }) => (
-          <Mutation
-            mutation={CREATE_ORDER_MUTATION}
-            refetchQueries={[{ query: CURRENT_USER_QUERY }]}
-          >
-            {(createOrder, { error, loading, called }) => (
-              <StripeCheckout
-                amount={cartTotalPrice(me.cart)}
-                name="Gouda"
-                description={`Order for ${totalItems(me.cart)} items`}
-                image="/static/img/logo.png"
-                token={res => this.onToken(res, createOrder)}
-                shippingAddres
-                stripeKey="pk_test_lBFHMEh6uPYqXDOGgdUUS4Ym00G3lKhcs8"
-              >
-                {this.props.children}
-              </StripeCheckout>
-            )}
-          </Mutation>
-        )}
+        {({ data }) =>
+          data.me && (
+            <Mutation
+              mutation={CREATE_ORDER_MUTATION}
+              refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+            >
+              {(createOrder, { error, loading, called }) => (
+                <StripeCheckout
+                  amount={cartTotalPrice(data.me.cart)}
+                  name="Gouda"
+                  description={`Order for ${totalItems(data.me.cart)} items`}
+                  image="/static/img/logo.png"
+                  token={res => this.onToken(res, createOrder)}
+                  shippingAddres
+                  stripeKey="pk_test_lBFHMEh6uPYqXDOGgdUUS4Ym00G3lKhcs8"
+                >
+                  {this.props.children}
+                </StripeCheckout>
+              )}
+            </Mutation>
+          )
+        }
       </User>
     );
   }
