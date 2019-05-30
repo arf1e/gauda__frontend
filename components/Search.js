@@ -39,15 +39,16 @@ class Search extends React.Component {
 
   onChange = debounce(async (e, client) => {
     this.setState({ loading: true });
-    const res = await client.query({
-      query: SEARCH_ITEMS_QUERY,
-      variables: { input: e.target.value },
-    });
-    this.setState({
-      items: res.data.items,
-      loading: false,
-    });
-    console.log(res);
+    if (e.target.value.length > 1) {
+      const res = await client.query({
+        query: SEARCH_ITEMS_QUERY,
+        variables: { input: e.target.value },
+      });
+      this.setState({
+        items: res.data.items,
+        loading: false,
+      });
+    }
   }, 350);
 
   render() {

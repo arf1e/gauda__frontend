@@ -7,7 +7,7 @@ import StyledButton from './styled/StyledButton';
 const FilterStyles = styled.form`
   width: 320px;
   margin: 0 auto;
-  border: 3px solid black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   padding: 12px 15px;
 
   h2 {
@@ -21,7 +21,7 @@ const FilterStyles = styled.form`
   .badge {
     width: 64px;
     height: 64px;
-    border: 3px solid black;
+    border: 2px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -94,7 +94,7 @@ const FilterStyles = styled.form`
     width: 100%;
   }
 
-  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+  @media (min-width: ${({ theme }) => theme.desktopWidth}) {
     width: 190px;
 
     .category {

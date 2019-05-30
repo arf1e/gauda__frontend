@@ -103,31 +103,25 @@ export default class Items extends Component {
 
   render() {
     return (
-      <Container>
-        <Filter handleChange={this.handleChange} />
-        <Query query={FILTERED_ITEMS_QUERY} variables={this.state}>
-          {({ data, error, loading }) => {
-            // У нас сразу есть три состояния:
-            // 1. Загрузки:
-            if (loading)
-              return <Response className="loading">Loading...</Response>;
-            // 2. Ошибки:
-            if (error) return <Error error={error} />;
-            // 3. Когда все хорошо:
-            if (data.items.length === 0)
-              return <Response>No items found.</Response>;
-            return (
-              <div>
+      <Query query={FILTERED_ITEMS_QUERY} variables={this.state}>
+        {({ data, error, loading, refetch }) => (
+          <Container>
+            <Filter handleChange={this.handleChange} />
+            <div>
+              {loading && <Response className="loading">Loading...</Response>}
+              {error && <Error error={error} />}
+              {data.items.length === 0 && <Response>No items found.</Response>}
+              {data.items.length > 0 && (
                 <ItemsList>
                   {data.items.map(item => (
                     <Item item={item} key={item.id} />
                   ))}
                 </ItemsList>
-              </div>
-            );
-          }}
-        </Query>
-      </Container>
+              )}
+            </div>
+          </Container>
+        )}
+      </Query>
     );
   }
 }

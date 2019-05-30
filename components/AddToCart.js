@@ -14,6 +14,20 @@ const ADD_TO_CART_MUTATION = gql`
 `;
 
 export default class AddToCart extends React.Component {
+  update = itemId => (cache, payload) => {
+    const data = cache.readQuery({ query: CURRENT_USER_QUERY });
+    const { cart } = data.me;
+    const isInCart = cart.filter(el => el.item.id === itemId).length > 0;
+    if (isInCart) {
+      const index = cart.map(el => el.item.id).indexOf(itemId);
+      const qty = cart[index].quantity;
+      data.me.cart[index].quantity = qty + 1;
+      cache.writeQuery({ query: CURRENT_USER_QUERY, data });
+    } else {
+      return null;
+    }
+  };
+
   render() {
     const { id } = this.props;
     return (
@@ -21,6 +35,13 @@ export default class AddToCart extends React.Component {
         mutation={ADD_TO_CART_MUTATION}
         variables={{ id }}
         refetchQueries={[{ query: CURRENT_USER_QUERY }]}
+        optimisticResponse={{
+          __typename: 'Mutation',
+          addToCart: {
+            __typename: 'CartItem',
+            id,
+          },
+        }}
       >
         {addToCart => (
           <StyledButton onClick={addToCart}>Add To Cart</StyledButton>

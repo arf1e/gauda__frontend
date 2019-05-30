@@ -11,7 +11,7 @@ import Phone from './Phone';
 import Auth from './Auth';
 import Search from './Search';
 import UserOptions from './UserOptions';
-
+import Container from './styled/Container';
 // Прогресс-бар
 Router.onRouteChangeStart = () => {
   NProgress.start();
@@ -27,10 +27,20 @@ Router.onRouteChangeError = () => {
 
 const HeaderBody = styled.header`
   background-color: #f8f9fa;
+  width: 100%;
+
   .nav-link {
     font-weight: 400;
-    font-size: 1.1em;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
   }
+
+  .container-fluid {
+    padding: 0;
+    margin: 0;
+  }
+
   .logo {
     margin-top: 0;
     padding: 0;
@@ -41,7 +51,17 @@ const HeaderBody = styled.header`
     padding: 0.8rem;
   }
   .navbar-nav li {
-    padding-right: 20px;
+    margin-right: 20px;
+  }
+
+  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+    padding: 15px 0;
+  }
+
+  @media (min-width: ${({ theme }) => theme.desktopWidth}) {
+    .nav-link {
+      font-size: 16px;
+    }
   }
 `;
 class Header extends React.Component {
@@ -51,42 +71,44 @@ class Header extends React.Component {
 
   render() {
     return (
-      <HeaderBody className="bar navbar navbar-expand-md navbar-light bg-light sticky-top">
-        <div className="container-fluid">
-          <Link href="/">
-            <a href="#" className="navbar-brand">
-              <img
-                src="/static/img/logo.png"
-                alt="logo"
-                className="logo"
-                width="100"
-                height="100"
-              />
-            </a>
-          </Link>
-          <button
-            className="navbar-toggler"
-            data-toggle="collapse"
-            onClick={() => this.setState({ showMenu: !this.state.showMenu })}
-          >
-            {this.state.showMenu ? (
-              <span className="navbar-toggler-icon" />
-            ) : (
-              <span className="navbar-toggler-icon" />
-            )}
-          </button>
-          <div
-            className={`collapse navbar-collapse ${
-              this.state.showMenu ? 'show' : ''
-            }`}
-          >
-            <Nav />
-            <Search />
-            <Cart />
-            <UserOptions />
+      <Container>
+        <HeaderBody className="bar navbar navbar-expand-md navbar-light bg-light sticky-top">
+          <div className="container-fluid">
+            <Link href="/">
+              <a href="#" className="navbar-brand">
+                <img
+                  src="/static/img/logo.png"
+                  alt="logo"
+                  className="logo"
+                  width="100"
+                  height="100"
+                />
+              </a>
+            </Link>
+            <button
+              className="navbar-toggler"
+              data-toggle="collapse"
+              onClick={() => this.setState({ showMenu: !this.state.showMenu })}
+            >
+              {this.state.showMenu ? (
+                <span className="navbar-toggler-icon" />
+              ) : (
+                <span className="navbar-toggler-icon" />
+              )}
+            </button>
+            <div
+              className={`collapse navbar-collapse ${
+                this.state.showMenu ? 'show' : ''
+              }`}
+            >
+              <Nav />
+              <Search />
+              <Cart />
+              <UserOptions />
+            </div>
           </div>
-        </div>
-      </HeaderBody>
+        </HeaderBody>
+      </Container>
     );
   }
 }
