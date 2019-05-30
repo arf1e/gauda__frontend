@@ -14,7 +14,7 @@ const DELETE_ITEM_MUTATION = gql`
 export default class DeleteItem extends Component {
   update = (cache, payload) => {
     // Вручную обновить кэш на клиенте
-    const data = cache.readQuery({ query: ALL_ITEMS_QUERY, variables: {} });
+    const data = cache.readQuery({ query: ALL_ITEMS_QUERY });
     console.log(data);
     // Отфильтровать удаленный айтем
     data.items = data.items.filter(
@@ -30,7 +30,6 @@ export default class DeleteItem extends Component {
         mutation={DELETE_ITEM_MUTATION}
         variables={{ id: this.props.id }}
         update={this.update}
-        refetchQueries={[{ query: ALL_ITEMS_QUERY }]}
       >
         {(deleteItem, { error }) => (
           <button

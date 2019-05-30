@@ -15,7 +15,7 @@ const UserBlock = styled.li`
   }
   list-style-image: none;
   @media (min-width: ${({ theme }) => theme.tabletWidth}) {
-    margin-left: 20%;
+    margin-left: auto;
     display: inline-flex;
     justify-content: center;
     align-items: center;
