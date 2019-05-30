@@ -6,6 +6,7 @@ import Error from './ErrorMessage';
 import Table from './styled/Table';
 import StyledButton from './styled/StyledButton';
 import User from './User';
+import Container from './styled/Container';
 
 const ALL_USERS_QUERY = gql`
   query {
@@ -35,30 +36,27 @@ const UPDATE_PERMISSIONS_MUTATION = gql`
 const Permissions = props => (
   <Query query={ALL_USERS_QUERY}>
     {({ data, loading, error }) => (
-      <div style={{ width: 1050, margin: '20px auto' }}>
+      <Container>
         {error && <Error error={error} />}
         {data && (
-          <div>
-            <h1>Manage Permissions</h1>
-            <Table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  {possiblePermissions.map(permission => (
-                    <th key={permission}>{permission}</th>
-                  ))}
-                  <th>+</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.users &&
-                  data.users.map(user => <UserRow user={user} key={user.id} />)}
-              </tbody>
-            </Table>
-          </div>
+          <Table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                {possiblePermissions.map(permission => (
+                  <th key={permission}>{permission}</th>
+                ))}
+                <th>+</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.users &&
+                data.users.map(user => <UserRow user={user} key={user.id} />)}
+            </tbody>
+          </Table>
         )}
-      </div>
+      </Container>
     )}
   </Query>
 );
@@ -115,7 +113,7 @@ class UserRow extends React.Component {
               <td>{user.name}</td>
               <td>{user.email}</td>
               {possiblePermissions.map(permission => (
-                <td>
+                <td key={permission}>
                   <label htmlFor={`${user.id}-permission-${permission}`}>
                     <input
                       type="checkbox"

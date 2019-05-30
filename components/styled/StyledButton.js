@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export default styled.button`
-  background-color: ${props => props.theme.mainColor};
+  background-color: ${props =>
+    props.secondary ? props.theme.mainVioletColor : props.theme.mainColor};
   border: ${props => props.theme.mainColor};
   padding: 10px 0;
   color: white;
