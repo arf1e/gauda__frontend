@@ -3,26 +3,94 @@ import React from 'react';
 import styled from 'styled-components';
 import { Query, Mutation } from 'react-apollo';
 import Link from 'next/link';
-import { ALL_ITEMS_QUERY } from './Items';
+import gql from 'graphql-tag';
+import CreateItem from './CreateItem';
 import Table from './styled/Table';
 import Container from './styled/Container';
 import formatMoney from '../lib/formatMoney';
 import StyledButton from './styled/StyledButton';
 import DeleteItem from './DeleteItem';
 
+const ALL_ITEMS_QUERY = gql`
+  query ALL_ITEMS_QUERY($order: ItemOrderByInput = title_ASC) {
+    items(orderBy: $order) {
+      title
+      id
+      category
+      image
+      price
+    }
+  }
+`;
+
 export default class AdminItems extends React.Component {
+  state = {
+    order: 'title_ASC',
+  };
+
   render() {
     return (
       <Container>
-        <Query query={ALL_ITEMS_QUERY}>
+        <Container>
+          <Link href="/new">
+            <a>
+              <StyledButton>+ create new item</StyledButton>
+            </a>
+          </Link>
+          {/* <CreateItem /> */}
+        </Container>
+        <Query
+          query={ALL_ITEMS_QUERY}
+          variables={this.state}
+          pollInterval={500}
+        >
           {({ data, error, loading }) => (
             <Table>
               <thead>
                 <tr>
                   <th>Image</th>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Price</th>
+                  <th>
+                    <a
+                      onClick={() =>
+                        this.setState({
+                          order:
+                            this.state.order === 'title_DESC'
+                              ? 'title_ASC'
+                              : 'title_DESC',
+                        })
+                      }
+                    >
+                      Title
+                    </a>
+                  </th>
+                  <th>
+                    <a
+                      onClick={() =>
+                        this.setState({
+                          order:
+                            this.state.order === 'category_DESC'
+                              ? 'category_ASC'
+                              : 'category_DESC',
+                        })
+                      }
+                    >
+                      Category
+                    </a>
+                  </th>
+                  <th>
+                    <a
+                      onClick={() =>
+                        this.setState({
+                          order:
+                            this.state.order === 'price_DESC'
+                              ? 'price_ASC'
+                              : 'price_DESC',
+                        })
+                      }
+                    >
+                      Price
+                    </a>
+                  </th>
                   <th>Update</th>
                   <th>Delete</th>
                   <th>View</th>
@@ -72,3 +140,5 @@ class ItemRow extends React.Component {
     );
   }
 }
+
+export { ALL_ITEMS_QUERY };
