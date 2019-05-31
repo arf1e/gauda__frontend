@@ -39,12 +39,15 @@ export default class AddToCart extends React.Component {
           __typename: 'Mutation',
           addToCart: {
             __typename: 'CartItem',
-            id,
-          },
+            id
+          }
         }}
       >
-        {addToCart => (
-          <StyledButton onClick={addToCart}>Add To Cart</StyledButton>
+        {(addToCart, { loading, error, called }) => (
+          <StyledButton onClick={addToCart} disabled={loading && !called}>
+            Add{loading ? 'ing' : ''} To Cart
+            {called && loading ? '...' : ''}
+          </StyledButton>
         )}
       </Mutation>
     );

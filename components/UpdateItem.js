@@ -106,11 +106,11 @@ export default class UpdateItem extends Component {
     const res = await updateItemMutation({
       variables: {
         id: this.props.id,
-        ...this.state,
-      },
+        ...this.state
+      }
     });
     Router.push({
-      pathname: '/admin',
+      pathname: '/admin'
     });
   };
 
@@ -131,14 +131,14 @@ export default class UpdateItem extends Component {
       'https://api.cloudinary.com/v1_1/arf1e/image/upload',
       {
         method: 'POST',
-        body: data,
+        body: data
       }
     );
     const file = await res.json();
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
-      uploading: false,
+      uploading: false
     });
   };
 
@@ -214,7 +214,7 @@ export default class UpdateItem extends Component {
                           id="file"
                           name="file"
                           placeholder="Upload an image"
-                          required
+                          required={data.item.image === ''}
                           onChange={this.uploadFile}
                         />
                         <StyledButton
@@ -241,7 +241,7 @@ export default class UpdateItem extends Component {
                                     'title',
                                     'price',
                                     'image',
-                                    'category',
+                                    'category'
                                   ].includes(el)
                                 ).length
                               }{' '}
