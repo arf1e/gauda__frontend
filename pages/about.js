@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Footer from '../components/Footer';
+import React, { useState } from 'react';
+import ReactMapGL from 'react-map-gl';
 const StyledAbout = styled.div`
 .Slogan{
   position:relative;
@@ -138,6 +140,16 @@ const StyledAbout = styled.div`
 }   
 `;
 export default class About extends React.Component{
+  state = {
+    viewport: {
+      width: "100%",
+      height: 400,
+      latitude: 52.0122863,
+      longitude: 4.7108608,
+      zoom: 16
+    }
+  };
+
     render(){
         return(
         <StyledAbout>
@@ -150,21 +162,13 @@ export default class About extends React.Component{
               &mdash; Say Gouda &mdash;
             </p>
             </div>
-            <div className="contacts__map-wrapper">
-            <div className="contacts__address">
-                <strong className="contacts__building">
-                2801 JK Gouda, Netherlands
-                </strong>
-                <strong className="contacts__street">Markt 35</strong>
-            </div>
-            <div className="contacts__map">
-            <div className="contacts__map--overlay"></div>
-                <iframe
-                className="contacts__map-iframe"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2455.6996457580135!2d4.7087010158495595!3d52.012350781477906!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5d7c17024e5e7%3A0x5810544387b2322e!2sGOUDA+CHEESE+MARKET!5e0!3m2!1sen!2sen!4v1557232622802!5m2!1sen!2sen"
-                ></iframe>
-            </div>
-            </div>
+            
+            <ReactMapGL
+        {...this.state.viewport}
+        mapboxApiAccessToken={"pk.eyJ1IjoicnVzYWcwIiwiYSI6ImNqd2JhaGVieTBoYXY0NG1tbzZzNmh5YWQifQ.gNic4MnbwS4icuI2Nb2sBQ"}
+        onViewportChange={(viewport) => this.setState({viewport})}
+        mapStyle="mapbox://styles/rusag0/cjwbb0rcz0qvn1do05oopwtsz"
+      />
 
               <h2 className="headingTwo">Most popular questions</h2>
             
