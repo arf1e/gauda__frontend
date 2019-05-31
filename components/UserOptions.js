@@ -38,6 +38,12 @@ const UserBlock = styled.li`
       }
     }
   }
+
+  @media (min-width: ${({theme}) => theme.desktopWidth}) {
+    .username {
+      margin: 0 15px;
+    }
+  }
 `;
 
 const UserOptions = () => (
@@ -81,7 +87,7 @@ const UserOptions = () => (
                 </ButtonWrap>
               )}
             </Mutation>
-            <strong>{me.name}</strong>
+            <strong className="username">{me.name}</strong>
             <Signout className="sign-out" />
           </UserBlock>
         );

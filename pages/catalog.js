@@ -17,8 +17,6 @@ const StyledHeading = styled.div`
     text-align: center;
     background-color: white;
     padding: 15px;
-    border-radius: 5px;
-
     h1 {
       font-size: 28px;
     }
