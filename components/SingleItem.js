@@ -120,10 +120,22 @@ const SINGLE_ITEM_QUERY = gql`
     item(where: { id: $id }) {
       id
       title
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       largeImage
       price
       description
+      recommended {
+        id
+        title
+        image
+      }
     }
   }
 `;
@@ -146,14 +158,16 @@ export default class SingleItem extends Component {
                 <h1>{item.title}</h1>
                 <div className="badge">
                   <ReactSVG
-                    src={`/static/svg/${item.category}.svg`}
+                    src={`/static/svg/${item.category.title}.svg`}
                     svgStyle={{ height: 20, width: 20 }}
                     svgClassName="category-icon"
                     wrapper="span"
                     className="category"
                     title="cheese"
                   />
-                  <span className="badge__description">White Wine</span>
+                  <span className="badge__description">
+                    {item.subcategory.title}
+                  </span>
                 </div>
                 <p className="info">
                   {item.description ||

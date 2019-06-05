@@ -31,14 +31,14 @@ export default class Payment extends React.Component {
     NProgress.start();
     const order = await createOrder({
       variables: {
-        token: res.id,
-      },
+        token: res.id
+      }
     }).catch(err => {
       alert(err.message);
     });
     Router.push({
       pathname: '/order',
-      query: { id: order.data.createOrder.id },
+      query: { id: order.data.createOrder.id }
     });
   };
 
@@ -58,7 +58,8 @@ export default class Payment extends React.Component {
                   description={`Order for ${totalItems(data.me.cart)} items`}
                   image="/static/img/logo.png"
                   token={res => this.onToken(res, createOrder)}
-                  shippingAddres
+                  billingAddress
+                  shippingAddress
                   stripeKey="pk_test_lBFHMEh6uPYqXDOGgdUUS4Ym00G3lKhcs8"
                 >
                   {this.props.children}

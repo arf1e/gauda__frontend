@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Mutation } from 'react-apollo';
+import { Mutation, Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import styled from 'styled-components';
@@ -172,16 +172,43 @@ const Form = styled.form`
   .category {
     margin-bottom: 0;
   }
+
+  .selectable {
+    padding: 10px;
+    padding-left: 0;
+    border: none;
+    border-bottom: 4px solid ${({ theme }) => theme.border};
+    font-weight: bold;
+  }
+`;
+
+const CATEGORIES_QUERY = gql`
+  query {
+    categories {
+      id
+      title
+    }
+  }
+`;
+
+const SUBCATEGORIES_QUERY = gql`
+  query SUBCATEGORIES_QUERY($category: ID) {
+    subcategories(where: { category: { id: $category } }) {
+      id
+      title
+    }
+  }
 `;
 
 export const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $price: Int!
-    $category: String!
+    $category: ID!
     $image: String!
     $largeImage: String!
     $description: String!
+    $subcategory: ID!
   ) {
     createItem(
       title: $title
@@ -190,11 +217,19 @@ export const CREATE_ITEM_MUTATION = gql`
       image: $image
       largeImage: $largeImage
       description: $description
+      subcategory: $subcategory
     ) {
       id
       title
       price
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       image
       largeImage
       description
@@ -205,12 +240,13 @@ export const CREATE_ITEM_MUTATION = gql`
 export default class CreateItem extends Component {
   state = {
     title: '',
-    category: 'cheese',
     price: 0,
     description: '',
     image: null,
     largeImage: null,
     uploading: false,
+    category: 'cjwffol75zm1f0b61wzgvje8d',
+    subcategory: 'cjwfia00irv1g0b05l2057v1n'
   };
 
   update = (cache, payload) => {
@@ -230,14 +266,14 @@ export default class CreateItem extends Component {
       'https://api.cloudinary.com/v1_1/arf1e/image/upload',
       {
         method: 'POST',
-        body: data,
+        body: data
       }
     );
     const file = await res.json();
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
-      uploading: false,
+      uploading: false
     });
   };
 
@@ -248,7 +284,6 @@ export default class CreateItem extends Component {
   };
 
   render() {
-    const { category } = this.state;
     return (
       <Mutation
         mutation={CREATE_ITEM_MUTATION}
@@ -272,72 +307,55 @@ export default class CreateItem extends Component {
                 <div className="textInfo">
                   <label htmlFor="category">
                     <strong>Category</strong>
-                    <div className="category">
-                      <input
-                        type="radio"
-                        name="category"
-                        value="cheese"
-                        id="cheese"
-                        checked={category === 'cheese'}
-                        onChange={e => this.handleChange(e)}
-                      />
-                      <label htmlFor="cheese" className="badge">
-                        <ReactSVG
-                          src="/static/svg/cheese.svg"
-                          svgStyle={{ height: 24, width: 24 }}
-                          svgClassName="category-icon"
-                        />
-                        CHEESE
-                      </label>
-                      <input
-                        type="radio"
-                        name="category"
-                        value="wine"
-                        id="wine"
-                        checked={category === 'wine'}
-                        onChange={e => this.handleChange(e)}
-                      />
-                      <label htmlFor="wine" className="badge">
-                        <ReactSVG
-                          src="/static/svg/wine.svg"
-                          svgStyle={{ height: 24, width: 24 }}
-                          svgClassName="category-icon"
-                        />
-                        WINE
-                      </label>
-                      <input
-                        type="radio"
-                        name="category"
-                        value="butter"
-                        id="butter"
-                        checked={category === 'butter'}
-                        onChange={e => this.handleChange(e)}
-                      />
-                      <label htmlFor="butter" className="badge">
-                        <ReactSVG
-                          src="/static/svg/butter.svg"
-                          svgStyle={{ height: 24, width: 24 }}
-                          svgClassName="category-icon"
-                        />
-                        BUTTER
-                      </label>
-                      <input
-                        type="radio"
-                        name="category"
-                        value="tickets"
-                        id="tickets"
-                        checked={category === 'tickets'}
-                        onChange={e => this.handleChange(e)}
-                      />
-                      <label htmlFor="tickets" className="badge">
-                        <ReactSVG
-                          src="/static/svg/tickets.svg"
-                          svgStyle={{ height: 24, width: 24 }}
-                          svgClassName="category-icon"
-                        />
-                        TICKETS
-                      </label>
-                    </div>
+                    <Query query={CATEGORIES_QUERY}>
+                      {({ data }) => (
+                        <div className="category">
+                          {data.categories.map(category => (
+                            <>
+                              <input
+                                type="radio"
+                                name="category"
+                                value={category.id}
+                                id={category.id}
+                                checked={this.state.category === category.id}
+                                onChange={e => this.handleChange(e)}
+                              />
+                              <label htmlFor={category.id} className="badge">
+                                <ReactSVG
+                                  src={`/static/svg/${category.title}.svg`}
+                                  svgStyle={{ height: 24, width: 24 }}
+                                  svgClassName="category-icon"
+                                />
+                                {category.title.toUpperCase()}
+                              </label>
+                            </>
+                          ))}
+                        </div>
+                      )}
+                    </Query>
+                  </label>
+                  <label htmlFor="subcategory">
+                    <strong>Subcategory</strong>
+                    <Query
+                      query={SUBCATEGORIES_QUERY}
+                      variables={{ category: this.state.category }}
+                    >
+                      {({ data }) => (
+                        <div>
+                          <select
+                            value={this.state.subcategory}
+                            onChange={this.handleChange}
+                            className="selectable"
+                          >
+                            {data.subcategories.map(subcategory => (
+                              <option value={subcategory.id}>
+                                {subcategory.title}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      )}
+                    </Query>
                   </label>
                   <label htmlFor="title" className="textInput">
                     <strong>Title</strong>

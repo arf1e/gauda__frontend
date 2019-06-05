@@ -19,7 +19,7 @@ export const CREATE_ITEM_MUTATION = gql`
   mutation CREATE_ITEM_MUTATION(
     $title: String!
     $price: Int!
-    $category: String!
+    $category: Category
   ) {
     createItem(title: $title, price: $price, category: $category) {
       id
@@ -91,7 +91,7 @@ const ItemCard = styled.article`
 
 export default class Item extends Component {
   static propTypes = {
-    item: PropTypes.object.isRequired,
+    item: PropTypes.object.isRequired
   };
 
   render() {
@@ -105,7 +105,7 @@ export default class Item extends Component {
           </a>
         </Link>
         <ReactSVG
-          src={`/static/svg/${item.category}.svg`}
+          src={`/static/svg/${item.category.title}.svg`}
           svgStyle={{ height: 20, width: 20 }}
           svgClassName="category-icon"
           wrapper="span"

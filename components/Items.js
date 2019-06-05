@@ -7,13 +7,20 @@ import Filter from './Filter';
 import Error from './ErrorMessage';
 
 import Item from './Item';
-// Бэст практис - писать названия запросов капсом
+
 export const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
     items {
       title
       id
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       image
       price
     }
@@ -22,10 +29,17 @@ export const ALL_ITEMS_QUERY = gql`
 
 export const FILTERED_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY($category: String, $sort: ItemOrderByInput) {
-    items(where: { category: $category }, orderBy: $sort) {
+    items(where: { category: { title: $category } }, orderBy: $sort) {
       title
       id
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       image
       price
     }
@@ -94,7 +108,7 @@ const Response = styled.div`
 export default class Items extends Component {
   state = {
     category: 'cheese',
-    sort: 'price_ASC',
+    sort: 'price_ASC'
   };
 
   handleChange = newState => {

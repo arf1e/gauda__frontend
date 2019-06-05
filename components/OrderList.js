@@ -21,6 +21,10 @@ const USER_ORDERS_QUERY = gql`
         description
         quantity
         image
+        category {
+          id
+          title
+        }
       }
     }
   }
@@ -66,7 +70,7 @@ export default class OrderList extends React.Component {
                     <Link
                       href={{
                         pathname: '/order',
-                        query: { id: order.id },
+                        query: { id: order.id }
                       }}
                     >
                       <a>

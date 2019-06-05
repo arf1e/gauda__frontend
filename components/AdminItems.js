@@ -16,7 +16,9 @@ const ALL_ITEMS_QUERY = gql`
     items(orderBy: $order) {
       title
       id
-      category
+      category {
+        title
+      }
       image
       price
     }
@@ -25,7 +27,7 @@ const ALL_ITEMS_QUERY = gql`
 
 export default class AdminItems extends React.Component {
   state = {
-    order: 'title_ASC',
+    order: 'title_ASC'
   };
 
   render() {
@@ -56,7 +58,7 @@ export default class AdminItems extends React.Component {
                           order:
                             this.state.order === 'title_DESC'
                               ? 'title_ASC'
-                              : 'title_DESC',
+                              : 'title_DESC'
                         })
                       }
                     >
@@ -70,7 +72,7 @@ export default class AdminItems extends React.Component {
                           order:
                             this.state.order === 'category_DESC'
                               ? 'category_ASC'
-                              : 'category_DESC',
+                              : 'category_DESC'
                         })
                       }
                     >
@@ -84,7 +86,7 @@ export default class AdminItems extends React.Component {
                           order:
                             this.state.order === 'price_DESC'
                               ? 'price_ASC'
-                              : 'price_DESC',
+                              : 'price_DESC'
                         })
                       }
                     >
@@ -117,7 +119,7 @@ class ItemRow extends React.Component {
           <img src={item.image} height={100} />
         </td>
         <td>{item.title}</td>
-        <td>{item.category}</td>
+        <td>{item.category.title}</td>
         <td>{formatMoney(item.price)}</td>
         <td>
           <Link href={{ pathname: '/update', query: { id: item.id } }}>
