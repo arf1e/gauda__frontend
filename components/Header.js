@@ -53,7 +53,6 @@ const HeaderBody = styled.header`
   .navbar-nav li {
     margin-right: 20px;
   }
-
   @media (min-width: ${({ theme }) => theme.tabletWidth}) {
     padding: 15px 0;
   }
@@ -62,6 +61,9 @@ const HeaderBody = styled.header`
     .nav-link {
       font-size: 16px;
     }
+    .phonediv{
+    margin-left:5%;
+  }
   }
 `;
 class Header extends React.Component {
@@ -103,6 +105,8 @@ class Header extends React.Component {
             >
               <Nav />
               <Search />
+              <Phone/>
+              
               <Cart />
               <UserOptions />
             </div>

@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import $ from "jquery";
-const ButtonStyled = styled.div`
-.btn_up{
+const ButtonStyled = styled.button`
   position: fixed;
-  bottom: -50px;
+  bottom:-50px;
+  color: white; 
   right: 1%;
   width: 50px;
   height: 50px;
   border: 2px solid black;
   border-radius: 50%;
-  background: ${props => props.theme.mainYellowColor};
+  background: ${props => props.theme.mainActiveColor};
   z-index: 100;
   outline: 0!important;
   cursor: pointer;
@@ -18,8 +17,8 @@ const ButtonStyled = styled.div`
     content: "";
     width: 10px;
     height: 10px;
-    border-top: 2px solid ${props => props.theme.mainColor};
-    border-left: 2px solid ${props => props.theme.mainColor};
+    border-top: 2px solid white;
+    border-left: 2px solid white;
     transform: rotate(45deg);
     position: absolute;
     top: 4px;
@@ -28,28 +27,36 @@ const ButtonStyled = styled.div`
     right: 0;
     margin: auto;
   }
-  &.active{
-    .btn_up.active{
+  .active{
     bottom:50px;  
-  }
 }
 
-}
 `;
-const ButtonUp = () => (
-    <ButtonStyled>
-        $("body").append('<button class="btn_up"/>');
-        $(".btn_up").click(function(){
-            $("body").animate({"scrollTop": 0}, 300);
-            $("html").animate({"scrollTop": 0}, 300);
-        });
-        $(window).scroll(function(){
-             if($(window).scrollTop() > 300){
-                 $(".btn_up").addClass("active");
-             }else{
-                 $(".btn_up").removeClass("active");
-        }
-        });
+
+class ButtonUp extends React.Component{
+  constructor(props) {
+    super(props);
+    this.ButtonVisible = this.ButtonVisible.bind(this);
+    this.ButtonUp = this.ButtonUp.bind(this);
+  }
+
+  ButtonVisible(e) {
+    e.preventDefault();
+    window.pageYOffset >= 300 ? ButtonStyled.props.className ="active" : ButtonStyled.props.className = "";
+  }
+
+  ButtonUp(e){
+    e.preventDefault();
+    if (window.pageYOffset > 0){
+      window.scrollTo(0,0);
+    }
+  }
+  
+  render(){
+    return (
+    <ButtonStyled onScroll={this.ButtonVisible} onClick={this.ButtonUp} className="">
     </ButtonStyled>
-);
+    );
+  }
+}
 export default ButtonUp;

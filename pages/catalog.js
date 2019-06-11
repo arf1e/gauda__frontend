@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import LeftColumn from '../components/LeftColumnCatalog';
 import Items from '../components/Items';
 import Footer from '../components/Footer';
+import ButtonUp from '../components/ButtonUp'
 import Search from '../components/Search';
 
 const StyledHeading = styled.div`
@@ -72,6 +73,7 @@ const Catalog = () => (
     </StyledHeading>
     <Items />
     <Footer />
+    <ButtonUp/>
   </main>
 );
 

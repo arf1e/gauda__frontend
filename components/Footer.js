@@ -13,7 +13,7 @@ const Footer = () => (
                 <h2>Contacts</h2>
                 <div className="contactBlock">
                   <img src="/static/img/phone.png" alt="" className="footerIcon"/>
-                  <p className="footerIcon__text">+(31 70) 364 64 73</p>
+                  <p className="footerIcon__text"><a href="tel:+31703646473" className="footerphone">+(31 70) 364 64 73</a></p>
                 </div>
                 <div className="contactBlock">
                   <img src="/static/img/mail.png" alt="" className="footerIcon"/>

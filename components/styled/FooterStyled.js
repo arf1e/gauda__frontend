@@ -64,5 +64,9 @@ h5{
   position: absolute;
   left: 85%;
 }
+.footerphone{
+  text-decoration:none;
+  color:black;
+}
 `;
 export default FooterStyled;
