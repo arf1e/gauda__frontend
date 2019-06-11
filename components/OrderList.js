@@ -21,10 +21,6 @@ const USER_ORDERS_QUERY = gql`
         description
         quantity
         image
-        category {
-          id
-          title
-        }
       }
     }
   }
