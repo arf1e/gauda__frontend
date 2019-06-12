@@ -110,9 +110,9 @@ const FilterStyles = styled.form`
 
 export default class Filter extends React.Component {
   state = {
-    category: 'cheese',
-    by: 'title',
-    kind: 'ASC',
+    category: null,
+    by: null,
+    kind: null,
   };
 
   handleChange = e => {
@@ -121,7 +121,18 @@ export default class Filter extends React.Component {
 
   applyFilters = () => {
     const { category, by, kind } = this.state;
-    this.props.handleChange({ category, sort: `${by}_${kind}` });
+    this.props.handleChange({
+      category,
+      sort: this.state.by && this.state.kind ? `${by}_${kind}` : null,
+    });
+  };
+
+  reset = () => {
+    this.setState({
+      category: null,
+      by: null,
+      kind: null,
+    });
   };
 
   render() {
@@ -255,6 +266,18 @@ export default class Filter extends React.Component {
         <StyledButton style={{ margin: '0 auto' }} className="apply">
           APPLY
         </StyledButton>
+        {(this.state.category || this.state.sort || this.state.by) && (
+          <StyledButton
+            style={{ margin: '10px auto' }}
+            className="apply"
+            onClick={() => {
+              this.props.reset();
+              this.reset();
+            }}
+          >
+            CANCEL
+          </StyledButton>
+        )}
       </FilterStyles>
     );
   }

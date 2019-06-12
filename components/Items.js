@@ -28,8 +28,8 @@ export const ALL_ITEMS_QUERY = gql`
 `;
 
 export const FILTERED_ITEMS_QUERY = gql`
-  query ALL_ITEMS_QUERY($category: String, $sort: ItemOrderByInput) {
-    items(where: { category: { title: $category } }, orderBy: $sort) {
+  query FILTERED_ITEMS_QUERY($category: String, $sort: String) {
+    itemsFilter(category: $category, sort: $sort) {
       title
       id
       category {
@@ -107,12 +107,16 @@ const Response = styled.div`
 
 export default class Items extends Component {
   state = {
-    category: 'cheese',
-    sort: 'price_ASC'
+    category: null,
+    sort: null,
   };
 
   handleChange = newState => {
     this.setState({ ...newState });
+  };
+
+  resetFilter = () => {
+    this.setState({ category: null, sort: null });
   };
 
   render() {
@@ -120,14 +124,16 @@ export default class Items extends Component {
       <Query query={FILTERED_ITEMS_QUERY} variables={this.state}>
         {({ data, error, loading, refetch }) => (
           <Container>
-            <Filter handleChange={this.handleChange} />
+            <Filter handleChange={this.handleChange} reset={this.resetFilter} />
             <div>
               {loading && <Response className="loading">Loading...</Response>}
               {error && <Error error={error} />}
-              {data.items.length === 0 && <Response>No items found.</Response>}
-              {data.items.length > 0 && (
+              {data.itemsFilter.length === 0 && (
+                <Response>No items found.</Response>
+              )}
+              {data.itemsFilter.length > 0 && (
                 <ItemsList>
-                  {data.items.map(item => (
+                  {data.itemsFilter.map(item => (
                     <Item item={item} key={item.id} />
                   ))}
                 </ItemsList>

@@ -4,6 +4,7 @@ import { Query, Mutation } from 'react-apollo';
 import styled from 'styled-components';
 import Head from 'next/head';
 import ReactSVG from 'react-svg';
+import Container from './styled/Container';
 
 import FormatMoney from '../lib/formatMoney';
 import AddToCart from './AddToCart';
