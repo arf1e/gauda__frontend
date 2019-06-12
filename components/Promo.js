@@ -22,6 +22,11 @@ const ImageContainer = styled.article`
     margin: 0 auto;
   }
 
+  .redirectButton{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+  }
   @media (min-width: ${({ theme }) => theme.tabletWidth}) {
     padding-bottom: 60px;
 
@@ -108,12 +113,13 @@ const MessageBlock = ({
   content,
   action,
   sizing,
+  href
 }) => (
   <Message>
     <div className="message-inner">
       <h2>{title}</h2>
       {content && <p>{content}</p>} 
-      {action && <StyledButton>{action}</StyledButton>}
+      {action && <StyledButton><a className="redirectButton" href={href}>{action}</a></StyledButton>}
     </div>
   </Message>
 );

@@ -286,6 +286,12 @@ export class SignUp extends React.Component {
                   >
                     I already have an account
                   </a>
+                  <a
+                    href="/terms"
+                    className="redirect"
+                  >
+                    Terms
+                  </a>
                 </div>
               </Form>
             )}
