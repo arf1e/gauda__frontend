@@ -37,13 +37,15 @@ const Footer = () => (
                 <h2>keep in touch</h2>
                 <div className="mediaBlocks">
                   <div className="mediaBlock">
+                    <a className = "socialLink" href="https://www.instagram.com/gouda_cheese_experience/" target="_blank">
                     <img src="/static/img/instagram.png" alt=""/>
+                    </a>
                   </div>
                   <div className="mediaBlock">
-                    <img src="/static/img/twitter.png" alt=""/>
-                  </div>
-                  <div className="mediaBlock">
-                    <img src="/static/img/facebook.png" alt=""/>
+                    <a className = "socialLink" href="https://www.facebook.com/CheeseExperienceGouda/" target="_blank">
+                      <img src="/static/img/facebook.png" alt=""/>
+                    </a>
+                    
                   </div>
                 </div>
                 
