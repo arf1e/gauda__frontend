@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 const ButtonStyled = styled.button`
   position: fixed;
-  bottom:50px;
+  bottom:-50px;
   color: white; 
   right: 1%;
   width: 50px;
@@ -27,9 +27,15 @@ const ButtonStyled = styled.button`
     right: 0;
     margin: auto;
   }
-  .active{
+  &.active{
     bottom:50px;  
 }
+@media (min-width: ${({ theme }) => theme.desktopWidth}) {
+    opacity:.9;
+    :hover{
+      opacity:1;
+    }
+  }
 `;
 
 class ScrollButton extends React.Component {
@@ -42,7 +48,6 @@ class ScrollButton extends React.Component {
     };
   }
 
-  /*
   componentDidMount(){
     window.addEventListener("scroll", () => {
       const isTop = window.pageYOffset < 300;
@@ -54,10 +59,11 @@ class ScrollButton extends React.Component {
     })
   }
 
-  componentWillMount(){
+  componentWillUnmount(){
     window.removeEventListener("scroll");
   }
-  */
+
+ 
   scrollStep() {
     if (window.pageYOffset === 0) {
         clearInterval(this.state.intervalId);
