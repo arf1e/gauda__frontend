@@ -1,6 +1,7 @@
 import ThreeColumnSection from '../components/ThreeColumnSection';
 import Footer from '../components/Footer';
 import Promo from '../components/Promo';
+import ScrollButton from '../components/ButtonUp';
 // import ButtonUp from '../components/ButtonUp;'
 
 const content_sheep = "We provide our customers with products crafted with love to farming traditions, but keep our prices low. Find out how is that possible!"
@@ -26,6 +27,7 @@ const Index = () => (
       content={content_sheep}
       href={href_sheep}
       action="CheeseFarm" />
+    <ScrollButton/>
     <Footer />
   </div>
 );
