@@ -38,7 +38,7 @@ const Terms = props => (
     
     <h4 className="headingFour">PURCHASING ITEMS</h4>
     <p className="headingFour__text">Registering and logging in. Buyers are obliged to purchase items in accordance with the below listed procedures as well as the terms and conditions of payment.
-    Registration in online store system is a pre-condition for purchase of items. In order to register in the online store system, buyers are required to enter www.goudacheeseexperience.nl website and choose REGISTER providing e-mail address and chosen password.
+    Registration in online store system is a pre-condition for purchase of items. In order to register in the online store system, buyers are required to enter www.goudacheese-experience.com website and choose REGISTER providing e-mail address and chosen password.
     MY ACCOUNT bookmark offers full and unlimited access to buyer’s personal data.</p>
 
     <h4 className="headingFour">ORDERING</h4>
@@ -46,7 +46,7 @@ const Terms = props => (
     Purchase process is being finalised after PURCHASE has been confirmed, which stands for entering into legal contract between buyer and seller.Orders not paid for within 3 working days shall be cancelled without prior notice.</p>
 
     <h4 className="headingFour">ITEMS</h4>
-    <p className="headingFour__text">Items prices provided on www.goudacheeseexperience.nl</p>
+    <p className="headingFour__text">Items prices provided on www.goudacheese-experience.com/</p>
 
     <h4 className="headingFour">PRIVACY.Personal data</h4>
     <p className="headingFour__text">Customers consent to processing of their personal data by Gouda Cheese Experience for the sole purpose of executing items/s sale contract.Customers certify that provided data are his/her own data.</p>

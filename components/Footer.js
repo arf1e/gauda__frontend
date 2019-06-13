@@ -13,15 +13,15 @@ const Footer = () => (
                 <h2>Contacts</h2>
                 <div className="contactBlock">
                   <img src="/static/img/phone.png" alt="" className="footerIcon"/>
-                  <p className="footerIcon__text"><a href="tel:+31703646473" className="footerphone">+(31 70) 364 64 73</a></p>
+                  <p className="footerIcon__text"><a href="tel:+310616472414" className="footerphone">+31 (0)6 - 1647 2414</a></p>
                 </div>
                 <div className="contactBlock">
                   <img src="/static/img/mail.png" alt="" className="footerIcon"/>
-                  <p className="footerIcon__text">gouda@gmail.com</p>
+                  <p className="footerIcon__text">info@goudacheese-experience.com</p>
                 </div>
                 <div className="contactBlock">
                   <img src="/static/img/2gis.png" alt="" className="footerIcon"/>
-                  <p className="footerIcon__text">Markt 35 2801. JK Gouda, Netherlands</p>
+                  <p className="footerIcon__text">Lange Tiendeweg 78, 2801 KK Gouda, Netherlands</p>
                 </div>
               </Col>
               <Col md={4}>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const CartBody = styled.div`
-  @media (min-width: ${props => props.theme.desktopWidth}) {
+  @media (min-width: ${props => props.theme.tabletWidth}) {
     overflow-y: scroll;
     min-height: 450px;
     max-height: 650px;
