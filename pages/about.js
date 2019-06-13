@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Footer from '../components/Footer';
 import React, { useState } from 'react';
 import ReactMapGL from 'react-map-gl';
+import ScrollButton from '../components/ButtonUp';
 const StyledAbout = styled.div`
 .Slogan{
   position:relative;
@@ -207,6 +208,7 @@ export default class About extends React.Component{
             <p className="headingFour__text">Due to the quality and shelf life of fresh produce return is not possible. 
               Perishable goods or products with a limited shelf life are legally excluded from the right of withdrawal.</p>
             <Footer/>
+            <ScrollButton/>
             </StyledAbout>
             
         );

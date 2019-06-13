@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Footer from "../components/Footer";
 import ButtonUp from "../components/ButtonUp";
+import ScrollButton from '../components/ButtonUp';
 const TermsStyled = styled.div`
 .headingTwo{
   position:relative;
@@ -55,7 +56,7 @@ const Terms = props => (
 
 
     <Footer/>
-    <ButtonUp/>
+    <ScrollButton/>
   </TermsStyled>
 );
 
