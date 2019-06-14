@@ -21,7 +21,7 @@ const ThreeColumnSections = () => (
                 className="theeCheese"
               />
               <h3>GRANA PADANO</h3>
-              <p>
+              <p className="threeText">
                 Grana Padano and Parmigiano Reggiano, many of us know simply as
                 Parmesan.
               </p>
@@ -44,7 +44,7 @@ const ThreeColumnSections = () => (
                 className="theeCheese"
               />
               <h3>MARTI FABRA VINYES VELLES</h3>
-              <p>Types: Red Unfortified still wines</p>
+              <p className="threeText">Types: Red Unfortified still wines</p>
               <p className="cost">13.50$</p>
               <Link
                 href={{
@@ -64,7 +64,7 @@ const ThreeColumnSections = () => (
                 className="theeCheese"
               />
               <h3>BEURRE DE BARATTE DEMI-SEL - SALTED BUTTER</h3>
-              <p>from France by Rodolphe Le Meunier</p>
+              <p className="threeText">from France by Rodolphe Le Meunier</p>
               <p className="cost">$11.75</p>
               <Link
                 href={{

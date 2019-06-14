@@ -27,36 +27,63 @@ const ButtonStyled = styled.button`
     right: 0;
     margin: auto;
   }
-  .active{
+  &.active{
     bottom:50px;  
 }
-
-`;
-
-class ButtonUp extends React.Component{
-  constructor(props) {
-    super(props);
-    this.ButtonVisible = this.ButtonVisible.bind(this);
-    this.ButtonUp = this.ButtonUp.bind(this);
-  }
-
-  ButtonVisible(e) {
-    e.preventDefault();
-    window.pageYOffset >= 300 ? ButtonStyled.props.className ="active" : ButtonStyled.props.className = "";
-  }
-
-  ButtonUp(e){
-    e.preventDefault();
-    if (window.pageYOffset > 0){
-      window.scrollTo(0,0);
+@media (min-width: ${({ theme }) => theme.desktopWidth}) {
+    opacity:.9;
+    :hover{
+      opacity:1;
     }
   }
+`;
+
+class ScrollButton extends React.Component {
   
-  render(){
-    return (
-    <ButtonStyled onScroll={this.ButtonVisible} onClick={this.ButtonUp} className="">
-    </ButtonStyled>
-    );
+  constructor() {
+    super();
+    this.state = {
+        intervalId: 0,
+        isActive:false,
+    };
   }
+
+  componentDidMount(){
+    window.addEventListener("scroll", () => {
+      const isTop = window.pageYOffset < 300;
+      if (isTop !== true){
+        this.setState({isActive : true});
+      }else{
+        this.setState({isActive : false});
+      }
+    })
+  }
+
+  componentWillUnmount(){
+    window.removeEventListener("scroll", () =>{});
+  }
+
+ 
+  scrollStep() {
+    if (window.pageYOffset === 0) {
+        clearInterval(this.state.intervalId);
+    }
+    window.scroll(0, window.pageYOffset - window.pageYOffset/10);
+  }
+
+  scrollToTop() {
+    let intervalId = setInterval(this.scrollStep.bind(this), 16.66);
+    this.setState({ intervalId: intervalId });
+  }
+  
+  render () {
+    return (
+      <ButtonStyled 
+      onClick={ () => { this.scrollToTop();} } 
+      className={ this.state.isActive ? 'active' : ''}>
+      </ButtonStyled>
+    );
+   } 
 }
-export default ButtonUp;
+
+export default ScrollButton;

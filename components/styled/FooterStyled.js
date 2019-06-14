@@ -13,6 +13,9 @@ footer{
   color:black;
   padding-top: 2rem;
 }
+.socialLink{
+  display:block;
+}
 hr.light{
   border-top: 1px solid #d5d5d5;
   width: 75%;
@@ -43,6 +46,7 @@ h5{
 .mediaBlocks{
   margin:5% 5%;
   display:flex;
+  justify-content: center;
 }
 .messageInput{
   position:relative;

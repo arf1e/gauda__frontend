@@ -14,7 +14,7 @@ opacity:.8;
 
 const Phone = () => (
 <StyledPhone>
-<img src="/static/img/phone.png" alt="Phoneicon" /><a href="tel:+31703646473" className="phoneNumber">+(31 70) 364 64 73</a>
+<img src="/static/img/phone.png" alt="Phoneicon" /><a href="tel:+310616472414" className="phoneNumber">+31 (0)6 - 1647 2414</a>
 </StyledPhone>
 );
 export default Phone;

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import StyledButton from './styled/StyledButton';
+import Link from 'next/link';
 
 const ImageContainer = styled.article`
   width: 100%;
@@ -119,7 +120,11 @@ const MessageBlock = ({
     <div className="message-inner">
       <h2>{title}</h2>
       {content && <p>{content}</p>} 
-      {action && <StyledButton><a className="redirectButton" href={href}>{action}</a></StyledButton>}
+      {action && <StyledButton><Link href={href}>
+        <a className="redirectButton">
+        {action}
+        </a>
+      </Link></StyledButton>}
     </div>
   </Message>
 );

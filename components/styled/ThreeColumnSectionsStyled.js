@@ -12,6 +12,7 @@ const ContainerStyled = styled.div`
   .theeCheese{
     max-width:inherit;
     border-radius:50%;
+    height:100px;
   }
   .padding {
     padding-bottom: 2rem;
@@ -28,6 +29,15 @@ const ContainerStyled = styled.div`
   h3 {
     margin-top: 10%;
     font-size: 28px;
+    height:70px;
+    text-align:center;
+    vertical-align:center;
+  }
+  p{
+    height:50px;
+  }
+  .threeText{
+    margin-top:10%;
   }
   .leadThreeColumn {
     font-size: 20px;
@@ -61,12 +71,18 @@ const ContainerStyled = styled.div`
     font-size: 36px;
     line-height: 49px;
   } 
+  .threeText{
+    margin-top:30%;
+  }
 }
 @media (min-width: ${({ theme }) => theme.desktopWidth}) {
   .display-4 {
     margin: 3rem 0 3rem 10%;
     font-size: 48px;
     line-height: 65px;
+  }
+  .threeText{
+    margin-top:10%;
   }
 }
   
