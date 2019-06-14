@@ -25,7 +25,7 @@ const Nav = () => (
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
             <Link href="/catalog">
-              <a className="nav-link">CheeseFarm</a>
+              <a className="nav-link">Cheese Farm</a>
             </Link>
           </li>
           <li className="nav-item">

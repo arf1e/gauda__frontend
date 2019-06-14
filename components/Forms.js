@@ -117,10 +117,10 @@ const SIGNUP_MUTATION = gql`
       email
       name
       cart {
+        quantity
         item {
           title
           price
-          quantity
         }
       }
     }
@@ -138,7 +138,7 @@ const REQUEST_RESET_MUTATION = gql`
 export class SignIn extends React.Component {
   state = {
     email: '',
-    password: ''
+    password: '',
   };
 
   saveToState = e => {
@@ -154,8 +154,8 @@ export class SignIn extends React.Component {
             variables={this.state}
             refetchQueries={[
               {
-                query: CURRENT_USER_QUERY
-              }
+                query: CURRENT_USER_QUERY,
+              },
             ]}
           >
             {(signin, { error, loading, called }) => (
@@ -213,7 +213,7 @@ export class SignUp extends React.Component {
     name: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   };
 
   saveToState = e => {
@@ -286,10 +286,7 @@ export class SignUp extends React.Component {
                   >
                     I already have an account
                   </a>
-                  <a
-                    href="/terms"
-                    className="redirect"
-                  >
+                  <a href="/terms" className="redirect">
                     Terms
                   </a>
                 </div>
@@ -304,7 +301,7 @@ export class SignUp extends React.Component {
 
 export class Forgot extends React.Component {
   state = {
-    email: ''
+    email: '',
   };
 
   saveToState = e => {
