@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
 const CartBody = styled.div`
+  .cart__heading{
+    margin-top:${props => props.theme.mobileMarginTopHeaderElement};
+    font-size:16px;
+  }
   @media (min-width: ${props => props.theme.tabletWidth}) {
     overflow-y: scroll;
     min-height: 450px;
@@ -72,7 +76,16 @@ const CartBody = styled.div`
     .close-container:hover label {
       opacity: 1;
     }
+    .cart__heading{
+    font-size:24px;
   }
+  }
+  @media (min-width: ${props => props.theme.tabletWidth}) {
+    .cart__heading{
+    font-size:34px;
+  }
+  }
+  
 `;
 
 export default CartBody;

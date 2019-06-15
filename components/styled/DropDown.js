@@ -34,12 +34,14 @@ const glow = keyframes`
 `;
 
 const SearchStyles = styled.div`
+  margin-top:${props => props.theme.mobileMarginTopHeaderElement};
+  margin-right:2%;
   position: relative;
   input {
     width: 100%;
     padding: 10px;
     border: 0;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 700;
     border-bottom: 3px solid ${({ theme }) => theme.border};
     transition: 225ms;
@@ -51,6 +53,12 @@ const SearchStyles = styled.div`
     &:focus {
       outline: none;
       border-bottom-color: ${({ theme }) => theme.mainColor};
+    }
+  }
+  @media (min-width: ${({ theme }) => theme.tabletWidth}) {
+    margin-top:0;
+    input{
+      font-size:16px;
     }
   }
 `;

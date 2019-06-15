@@ -22,6 +22,7 @@ const theme = {
   mainColorRGB: '23,88,66',
   border: '#e5e5e5',
   bs: '0 12px 24px 0 rgba(0, 0, 0, 0.09)',
+  mobileMarginTopHeaderElement: "3%",
 };
 
 const GlobalStyle = createGlobalStyle`

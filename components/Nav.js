@@ -10,11 +10,19 @@ import CartCount from './CartCount';
 
 const Navigation = styled.nav`
   .nav-link {
-    cursor: pointer;
+    cursor: pointer;  
+  }
+  .nav-item{
+    margin-top:${props => props.theme.mobileMarginTopHeaderElement};
   }
 
   .navigation__link--cart {
     display: flex;
+  }
+  @media (min-width: ${props => props.theme.tabletWidth}) {
+    .nav-item{
+      margin-top:0%;
+    }
   }
 `;
 

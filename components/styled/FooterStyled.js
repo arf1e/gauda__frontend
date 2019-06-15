@@ -1,17 +1,19 @@
 import styled from 'styled-components';
 const FooterStyled = styled.div`
+.container-fluid{
+  color: white;
+  background-color: #3f3f3f;
+}
 .contactBlock{
   margin:10% 0;
+  text-align:left;
 }
 .footerIcon, .footerIcon__text{
+  color:white;
   display:inline;
 }
 .footerIcon{
   margin-right:5%;
-}
-footer{
-  color:black;
-  padding-top: 2rem;
 }
 .socialLink{
   display:block;
@@ -19,8 +21,7 @@ footer{
 hr.light{
   border-top: 1px solid #d5d5d5;
   width: 75%;
-  margin-top: .8rem;
-  margin-bottom: 1rem;
+  margin: 2.5rem auto;
 }
 footer a{
   color:#d5d5d5;
@@ -35,13 +36,13 @@ h5{
   font-size:20px;
 }
 .hoursBlock{
-  border: 3px solid #000000;
+  border: 3px solid #ffffff;
   padding:5%;
 }
 .mediaBlock{
   padding:15px;
   margin:5% 5%;
-  border: 3px solid #000000;
+  border: 3px solid #ffffff;
 }
 .mediaBlocks{
   margin:5% 5%;
@@ -50,7 +51,7 @@ h5{
 }
 .messageInput{
   position:relative;
-  border:1px solid #000000;
+  border:2px solid #ffffff;
   display:flex;
   align-items: center;
 }
@@ -60,17 +61,38 @@ h5{
   border:none;
   width:75%;
 }
-#messageInput__button{
-  background-image:url("/static/img/mail.png");
-  width:21px;
-  height:17px;
+.messageInput__button{
+  margin-left:5%;
+  color: white;
+  background-color: #3f3f3f;
   border:none;
-  position: absolute;
-  left: 85%;
+  opacity:.8;
+  &:hover{
+    cursor: pointer;
+    opacity:1;
+  }
 }
 .footerphone{
   text-decoration:none;
-  color:black;
+  color:white;
+}
+.goudaLinks{
+  padding:15px;
+}
+.goudaLink{
+  margin-top:2%;
+}
+.goudaLink__a{
+  color:white;
+  cursor: pointer;
+  opacity:.9;
+  transition:.4s ease-in;
+  &:hover{
+    opacity:1;
+  }
+}
+h2{
+  margin-top:20px;
 }
 `;
 export default FooterStyled;
