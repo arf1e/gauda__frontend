@@ -14,17 +14,13 @@ const ContainerStyled = styled.div`
     border-radius:50%;
     height:100px;
   }
-  .padding {
-    padding-bottom: 2rem;
-  }
   .welcome {
     width: 100%;
+    margin: 2.5rem 0;
   }
   .welcome hr {
     border-top: 2px solid #b4b4b4;
     width: 95%;
-    margin-top: 0.3rem;
-    margin-bottom: 1rem;
   }
   h3 {
     margin-top: 10%;

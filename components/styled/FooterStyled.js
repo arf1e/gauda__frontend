@@ -15,18 +15,13 @@ const FooterStyled = styled.div`
 .footerIcon{
   margin-right:5%;
 }
-footer{
-  color:black;
-  padding-top: 2rem;
-}
 .socialLink{
   display:block;
 }
 hr.light{
   border-top: 1px solid #d5d5d5;
   width: 75%;
-  margin-top: .8rem;
-  margin-bottom: 1rem;
+  margin: 2.5rem auto;
 }
 footer a{
   color:#d5d5d5;
