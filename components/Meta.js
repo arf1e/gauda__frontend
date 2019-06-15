@@ -14,6 +14,7 @@ const Meta = () => (
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossOrigin="anonymous"
     />
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&libraries=places" />
     {/* <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js" /> */}
     {/* <link
       href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css"

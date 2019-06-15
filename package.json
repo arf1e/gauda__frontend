@@ -34,6 +34,7 @@
     "react-apollo": "^2.5.4",
     "react-bootstrap": "^1.0.0-beta.8",
     "react-dom": "^16.8.6",
+    "react-geosuggest": "^2.12.0",
     "react-map-gl": "^4.1.3",
     "react-snipcart": "^0.1.6",
     "react-stripe-checkout": "^2.6.3",
