@@ -29,7 +29,7 @@ const UserBlock = styled.li`
     }
 
     .navigation__link--cart {
-      display: flex;
+      margin-right:5%;
     }
 
     .cart-icon {
@@ -42,6 +42,9 @@ const UserBlock = styled.li`
   @media (min-width: ${({theme}) => theme.desktopWidth}) {
     .username {
       margin: 0 15px;
+    }
+    .navigation__link--cart {
+      margin-right:7%;
     }
   }
 `;

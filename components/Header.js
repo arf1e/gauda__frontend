@@ -42,8 +42,7 @@ const HeaderBody = styled.header`
   }
 
   .logo {
-    margin-top: 0;
-    padding: 0;
+    margin-left: 10%;
     width: 70%;
     height: 70%;
   }

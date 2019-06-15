@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 const StyledQuestions = styled.div`
+  padding: 0 15px;
   .headingTwo {
     position: relative;
     text-align: center;

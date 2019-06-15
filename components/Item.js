@@ -85,6 +85,7 @@ const ItemCard = styled.article`
     strong {
       font-size: 24px;
       margin-bottom: 5px;
+      text-align:center;
     }
   }
 `;
