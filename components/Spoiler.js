@@ -19,7 +19,10 @@ const SpoilerBody = styled.div`
     position: relative;
     max-width: 290px;
   }
-
+  .answer{
+    text-align: justify;
+    line-height: 2rem;
+  }
   .questionText {
     font-size: 24px;
     color: ${({ theme }) => theme.mainColor};
@@ -66,13 +69,13 @@ const SpoilerBody = styled.div`
     align-self: flex-start;
     margin: 30px 0;
   }
+
 `;
 
 export default class Spoiler extends React.Component {
   state = {
     isOpen: false,
   };
-
   flipSpoiler = () => this.setState({ isOpen: !this.state.isOpen });
 
   render() {
@@ -92,7 +95,7 @@ export default class Spoiler extends React.Component {
           <ReactCSSTransitionGroup {...transitionOptions}>
             {isOpen && (
               <div className="spoiler__content">
-                <p>{answer}</p>
+                <p className="answer">{answer}</p>
               </div>
             )}
           </ReactCSSTransitionGroup>

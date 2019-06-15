@@ -9,7 +9,7 @@ const ImageContainer = styled.article`
   background-image: url(${props => props.img || '/static/img/cheese.png'});
   background-repeat: no-repeat;
   background-position: center;
-  background-size: ${props => props.sizing || '1150px auto'};
+  background-size: ${props => props.sizing || "cover"};
   min-height: 400px;
   padding: 0;
   flex-direction: column;
