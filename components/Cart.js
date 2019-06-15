@@ -2,6 +2,7 @@ import React from 'react';
 import { Query, Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
 import { adopt } from 'react-adopt';
+import Link from 'next/link';
 
 import CartBody from './styled/CartBody';
 import CartItem from './CartItem';
@@ -44,8 +45,8 @@ const Cart = () => (
         <CartBody shown={localState.data.cartOpen}>
           <header>
             <div className="close-container" onClick={toggleCart}>
-              <div className="leftright"></div>
-              <div className="rightleft"></div>
+              <div className="leftright" />
+              <div className="rightleft" />
             </div>
             <h2>Cart</h2>
             <p>
@@ -57,6 +58,13 @@ const Cart = () => (
               <CartItem cartItem={cartItem} key={cartItem.id} />
             ))}
           </ul>
+          {me.cart.length > 0 && (
+            <footer>
+              <Link href="/neworder">
+                <StyledButton>Proceed to order</StyledButton>
+              </Link>
+            </footer>
+          )}
           {me.cart.length > 0 && (
             <footer>
               <h4>Total: {formatMoney(cartTotalPrice(me.cart))}</h4>

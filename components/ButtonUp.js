@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import React from 'react';
+
 const ButtonStyled = styled.button`
   position: fixed;
-  bottom:-50px;
-  color: white; 
+  bottom: -50px;
+  color: white;
   right: 1%;
   width: 50px;
   height: 50px;
@@ -10,11 +12,11 @@ const ButtonStyled = styled.button`
   border-radius: 50%;
   background: ${props => props.theme.mainActiveColor};
   z-index: 100;
-  outline: 0!important;
+  outline: 0 !important;
   cursor: pointer;
-  transition: .4s;
-  &:after{
-    content: "";
+  transition: 0.4s;
+  &:after {
+    content: '';
     width: 10px;
     height: 10px;
     border-top: 2px solid white;
@@ -27,63 +29,64 @@ const ButtonStyled = styled.button`
     right: 0;
     margin: auto;
   }
-  &.active{
-    bottom:50px;  
-}
-@media (min-width: ${({ theme }) => theme.desktopWidth}) {
-    opacity:.9;
-    :hover{
-      opacity:1;
+  &.active {
+    bottom: 50px;
+  }
+  @media (min-width: ${({ theme }) => theme.desktopWidth}) {
+    opacity: 0.9;
+    :hover {
+      opacity: 1;
     }
   }
 `;
 
 class ScrollButton extends React.Component {
-  
   constructor() {
     super();
     this.state = {
-        intervalId: 0,
-        isActive:false,
+      intervalId: 0,
+      isActive: false,
     };
   }
 
-  componentDidMount(){
-    window.addEventListener("scroll", () => {
+  componentDidMount() {
+    window.addEventListener('scroll', () => {
       const isTop = window.pageYOffset < 300;
-      if (isTop !== true){
-        this.setState({isActive : true});
-      }else{
-        this.setState({isActive : false});
+      if (isTop !== true) {
+        this.setState({ isActive: true });
+      } else {
+        this.setState({ isActive: false });
       }
-    })
+    });
   }
 
-  componentWillUnmount(){
-    window.removeEventListener("scroll", () =>{});
+  componentWillUnmount() {
+    window.removeEventListener('scroll', () => {});
   }
 
- 
   scrollStep() {
     if (window.pageYOffset === 0) {
-        clearInterval(this.state.intervalId);
+      clearInterval(this.state.intervalId);
     }
-    window.scroll(0, window.pageYOffset - window.pageYOffset/10);
+    window.scroll(0, window.pageYOffset - window.pageYOffset / 10);
   }
 
   scrollToTop() {
-    let intervalId = setInterval(this.scrollStep.bind(this), 16.66);
-    this.setState({ intervalId: intervalId });
+    // const intervalId = setInterval(this.scrollStep.bind(this), 16.66);
+    const intervalId = setInterval(this.scrollStep.bind(this), 5);
+    this.setState({ intervalId });
   }
-  
-  render () {
+
+  render() {
     return (
-      <ButtonStyled 
-      onClick={ () => { this.scrollToTop();} } 
-      className={ this.state.isActive ? 'active' : ''}>
-      </ButtonStyled>
+      <ButtonStyled
+        onClick={() => {
+          this.scrollToTop();
+        }}
+        className={this.state.isActive ? 'active' : ''}
+      />
     );
-   } 
+  }
 }
 
 export default ScrollButton;
