@@ -56,13 +56,12 @@ h5{
   align-items: center;
 }
 #messageInput__input{
-  margin-left:5%;
+  flex:4;
   padding-left:5%;
   border:none;
-  width:75%;
 }
 .messageInput__button{
-  margin-left:5%;
+  flex:1;
   color: white;
   background-color: #3f3f3f;
   border:none;

@@ -10,7 +10,7 @@ const ButtonStyled = styled.button`
   height: 50px;
   border: 2px solid black;
   border-radius: 50%;
-  background: ${props => props.theme.mainActiveColor};
+  background: ${props => props.theme.mainColor};
   z-index: 100;
   outline: 0 !important;
   cursor: pointer;
