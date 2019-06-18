@@ -246,7 +246,7 @@ export default class CreateItem extends Component {
     largeImage: null,
     uploading: false,
     category: 'cjwffol75zm1f0b61wzgvje8d',
-    subcategory: 'cjwfia00irv1g0b05l2057v1n'
+    subcategory: 'cjwfia00irv1g0b05l2057v1n',
   };
 
   update = (cache, payload) => {
@@ -266,14 +266,14 @@ export default class CreateItem extends Component {
       'https://api.cloudinary.com/v1_1/arf1e/image/upload',
       {
         method: 'POST',
-        body: data
+        body: data,
       }
     );
     const file = await res.json();
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
-      uploading: false
+      uploading: false,
     });
   };
 
@@ -343,7 +343,7 @@ export default class CreateItem extends Component {
                       {({ data }) => (
                         <div>
                           <select
-                            value={this.state.subcategory}
+                            value={this.state.subcategory.id}
                             onChange={this.handleChange}
                             className="selectable"
                           >
