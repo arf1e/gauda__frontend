@@ -46,7 +46,8 @@ class Map extends React.Component{
         height: 400,
         latitude: 52.0118696,
         longitude: 4.7139631,
-        zoom: 16
+        zoom: 16,
+        pitch: 90
       }
     };
   
