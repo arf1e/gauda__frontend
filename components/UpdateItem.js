@@ -8,6 +8,7 @@ import Error from './ErrorMessage';
 import Container from './styled/Container';
 import StyledButton from './styled/StyledButton';
 import { Response } from './Items';
+import { SUBCATEGORIES_QUERY } from './CreateItem';
 
 const Form = styled.form`
   width: 750px;
@@ -61,7 +62,8 @@ export const UPDATE_ITEM_MUTATION = gql`
     $id: ID!
     $title: String
     $price: Int
-    $category: String
+    $category: ID
+    $subcategory: ID
     $image: String
     $largeImage: String
   ) {
@@ -69,13 +71,21 @@ export const UPDATE_ITEM_MUTATION = gql`
       title: $title
       price: $price
       category: $category
+      subcategory: $subcategory
       id: $id
       image: $image
       largeImage: $largeImage
     ) {
       id
       title
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       price
       image
       largeImage
@@ -89,9 +99,20 @@ export const SINGLE_ITEM_QUERY = gql`
       id
       title
       price
-      category
+      category {
+        id
+        title
+      }
+      subcategory {
+        id
+        title
+      }
       image
       largeImage
+    }
+    categories {
+      id
+      title
     }
   }
 `;
@@ -106,11 +127,11 @@ export default class UpdateItem extends Component {
     const res = await updateItemMutation({
       variables: {
         id: this.props.id,
-        ...this.state
-      }
+        ...this.state,
+      },
     });
     Router.push({
-      pathname: '/admin'
+      pathname: '/admin',
     });
   };
 
@@ -131,14 +152,14 @@ export default class UpdateItem extends Component {
       'https://api.cloudinary.com/v1_1/arf1e/image/upload',
       {
         method: 'POST',
-        body: data
+        body: data,
       }
     );
     const file = await res.json();
     this.setState({
       image: file.secure_url,
       largeImage: file.eager[0].secure_url,
-      uploading: false
+      uploading: false,
     });
   };
 
@@ -164,7 +185,6 @@ export default class UpdateItem extends Component {
           {({ data, loading }) => {
             if (loading) return <p>Loading...</p>;
             if (!data || !data.item) return <p>No Item Found</p>;
-            console.log(data);
             return (
               <Mutation mutation={UPDATE_ITEM_MUTATION} variables={this.state}>
                 {(updateItem, { loading, error, called }) => (
@@ -201,14 +221,43 @@ export default class UpdateItem extends Component {
                             id="category"
                             name="category"
                             onChange={this.handleChange}
-                            defaultValue={data.item.category}
+                            defaultValue={data.item.category.id}
                           >
-                            <option value="cheese">Cheese</option>
-                            <option value="wine">Wine</option>
-                            <option value="butter">Butter</option>
-                            <option value="tickets">Tickets</option>
+                            {data.categories.map(category => (
+                              <option key={category.id} value={category.id}>
+                                {category.title}
+                              </option>
+                            ))}
                           </select>
                         </label>
+                        <Query
+                          query={SUBCATEGORIES_QUERY}
+                          variables={{
+                            category:
+                              this.state.category || data.item.category.id,
+                          }}
+                        >
+                          {({ data: { subcategories } }) => (
+                            <label htmlFor="subcategory">
+                              <strong>Subcategory</strong>
+                              <select
+                                id="subcategory"
+                                name="subcategory"
+                                onChange={this.handleChange}
+                                defaultValue={data.item.subcategory.id}
+                              >
+                                {subcategories.map(subcategory => (
+                                  <option
+                                    key={subcategory.id}
+                                    value={subcategory.id}
+                                  >
+                                    {subcategory.title}
+                                  </option>
+                                ))}
+                              </select>
+                            </label>
+                          )}
+                        </Query>
                         <input
                           type="file"
                           id="file"
@@ -241,7 +290,7 @@ export default class UpdateItem extends Component {
                                     'title',
                                     'price',
                                     'image',
-                                    'category'
+                                    'category',
                                   ].includes(el)
                                 ).length
                               }{' '}
