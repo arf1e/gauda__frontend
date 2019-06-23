@@ -1,5 +1,6 @@
 import Spoiler from './Spoiler';
 import StyledQuestions from './styled/styledQuestions';
+
 class Questions extends React.Component {
   constructor() {
     super();

@@ -4,6 +4,7 @@ import { Query } from 'react-apollo';
 import { format } from 'date-fns';
 import Head from 'next/head';
 import gql from 'graphql-tag';
+import moment from 'moment';
 import formatMoney from '../lib/formatMoney';
 import Error from './ErrorMessage';
 
@@ -58,7 +59,9 @@ class Order extends React.Component {
               </p>
               <p>
                 <span>Date: </span>
-                <span>{format(order.createdAt, 'MMMM d, YYYY h:mm A')}</span>
+                <span>
+                  {moment(order.createdAt).format('MMMM Do YYYY, h:mm')}
+                </span>
               </p>
               <p>
                 <span>Order Total: </span>
