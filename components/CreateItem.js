@@ -433,3 +433,5 @@ export default class CreateItem extends Component {
     );
   }
 }
+
+export { SUBCATEGORIES_QUERY };
