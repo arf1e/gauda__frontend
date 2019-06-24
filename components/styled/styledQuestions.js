@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 const StyledQuestions = styled.div`
+  width: 270px;
+  margin:auto;
   padding: 0 15px;
   .headingTwo {
     position: relative;
@@ -40,5 +42,11 @@ const StyledQuestions = styled.div`
       margin: 0;
     }
   }
+    @media (min-width: ${props => props.theme.tabletWidth}) {
+     width: 610px;
+    }
+    @media (min-width: ${props => props.theme.desktopWidth}) {
+      width: 1050px;
+    }
 `;
 export default StyledQuestions;

@@ -72,7 +72,7 @@ const Footer = () => (
             <Row>
               <Col sm={12}>
                 <hr className="light" />
-                <h5>&copy;copyright 2019 goudacheese-experience.com</h5>
+                <h5>&copy;copyright 2019 gouda.space</h5>
                 <p>All rights reserved</p>
               </Col>
             </Row>

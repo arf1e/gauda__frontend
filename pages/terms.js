@@ -33,7 +33,7 @@ const TermsStyled = styled.div`
 const Terms = props => (
   <TermsStyled>
     <h2 className="headingTwo">Gouda Cheese Experience terms of use</h2>
-    <p className="headingFour__text">Welcome to the "Gouda Cheese Farm" site, a web resource that helps you </p>
+    <p className="headingFour__text">Welcome to the "Gouda Cheese Experience" site, a web resource that helps you </p>
     
     <h4 className="headingFour">PURCHASING ITEMS</h4>
     <p className="headingFour__text">Registering and logging in. Buyers are obliged to purchase items in accordance with the below listed procedures as well as the terms and conditions of payment.
@@ -45,7 +45,7 @@ const Terms = props => (
     Purchase process is being finalised after PURCHASE has been confirmed, which stands for entering into legal contract between buyer and seller.Orders not paid for within 3 working days shall be cancelled without prior notice.</p>
 
     <h4 className="headingFour">ITEMS</h4>
-    <p className="headingFour__text">Items prices provided on www.goudacheese-experience.com/</p>
+    <p className="headingFour__text">Items prices provided on www.gouda.space</p>
 
     <h4 className="headingFour">PRIVACY.Personal data</h4>
     <p className="headingFour__text">Customers consent to processing of their personal data by Gouda Cheese Experience for the sole purpose of executing items/s sale contract.Customers certify that provided data are his/her own data.</p>
